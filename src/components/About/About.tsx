@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { School, Medal } from 'lucide-react'
 import { Container } from '../Project/styles'
 import {
