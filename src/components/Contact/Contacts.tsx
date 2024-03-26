@@ -1,4 +1,3 @@
-import React from 'react'
 import useWeb3forms from '@web3forms/react'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
