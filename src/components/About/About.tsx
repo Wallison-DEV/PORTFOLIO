@@ -54,7 +54,7 @@ const About = () => {
                 </div>
                 <div className="flex items-center justify-center">
                     <AboutImg
-                        src="./src/assets/images/about.png"
+                        src="./assets/images/about.png"
                         alt=""
                         className="w-3/4 md:w-3/4 rounded-full"
                     />

@@ -62,7 +62,7 @@ const Contact = () => {
 
     return (
         <Container id="contact">
-            <ContactContainer>
+            <ContactContainer className='md:mt-20 lg:mt-20'>
                 <ContactTitle>Como você pode me contatar</ContactTitle>
                 <GridMethods>
                     <ContactMethod>
