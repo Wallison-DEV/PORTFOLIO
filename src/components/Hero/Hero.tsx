@@ -5,6 +5,8 @@ import { Button } from '@/components/ui/button'
 
 import { Container } from '../Project/styles'
 
+import HeroImg from '@/assets/images/avatar.png'
+
 const Hero = () => {
     return (
         <Container className="flex items-center">
@@ -12,7 +14,7 @@ const Hero = () => {
                 <div className="grid grid-cols-1 md:grid-cols-12">
                     <div className="col-span-1 md:col-span-5 md:flex justify-center items-center">
                         <img
-                            src="./src/assets/images/avatar.png"
+                            src={HeroImg}
                             alt="Avatar"
                             className="w-3/4 md:w-3/4 rounded-full"
                         />
