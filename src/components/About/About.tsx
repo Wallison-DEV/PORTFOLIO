@@ -23,9 +23,8 @@ const About = () => {
                         Sou um Full Stack Python em formação pela EBAC – Escola
                         Britânica de Artes Criativas e Tecnologia. Um profissional
                         com perfil movido a desafios e constantemente buscando
-                        aprimoramento na área de tecnologia. Possuo experiências
-                        em React, TypeScript, Django, MySql e habilidades em
-                        VueJS.
+                        aprimoramento na área de tecnologia.  Possuo experiências em React,  
+                        TypeScript, MySql, Django, Ajax e habilidades em C++, NextJs.
                     </AboutText>
                     <StatsGrid>
                         <Card>
