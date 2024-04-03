@@ -57,7 +57,7 @@ function Home() {
                                 href="#start"
                                 className="font-bold text-2xl border-round cursor-pointer px-6 py-1 rounded-md hover:bg-gray-100"
                             >
-                Start
+                                Inicio
                             </NavigationMenuLink>
                         </NavigationMenuItem>
                         <NavigationMenuItem>
@@ -65,7 +65,7 @@ function Home() {
                                 href="#about"
                                 className="font-bold text-2xl border-round cursor-pointer px-6 py-1 rounded-md hover:bg-gray-100"
                             >
-                About
+                                Sobre
                             </NavigationMenuLink>
                         </NavigationMenuItem>
                         <NavigationMenuItem>
@@ -73,7 +73,7 @@ function Home() {
                                 href="#skills"
                                 className="font-bold text-2xl border-round cursor-pointer px-6 py-1 rounded-md hover:bg-gray-100"
                             >
-                Skills
+                                Habilidades
                             </NavigationMenuLink>
                         </NavigationMenuItem>
                         <NavigationMenuItem>
@@ -81,7 +81,7 @@ function Home() {
                                 href="#projects"
                                 className="font-bold text-2xl border-round cursor-pointer px-6 py-1 rounded-md hover:bg-gray-100"
                             >
-                Projects
+                                Projetos
                             </NavigationMenuLink>
                         </NavigationMenuItem>
                         <NavigationMenuItem>
@@ -89,7 +89,7 @@ function Home() {
                                 href="#contacts"
                                 className="font-bold text-2xl border-round cursor-pointer px-6 py-1 rounded-md hover:bg-gray-100"
                             >
-                Contact
+                                Contatos
                             </NavigationMenuLink>
                         </NavigationMenuItem>
                     </NavigationMenuList>
