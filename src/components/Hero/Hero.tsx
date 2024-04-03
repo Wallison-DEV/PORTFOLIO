@@ -27,10 +27,10 @@ const Hero = () => {
                             <Typical
                                 steps={[
                                     // eslint-disable-next-line quotes
-                                    "I'm a Software Engineer",
+                                    "Eu sou um engenheiro de software",
                                     1000,
                                     // eslint-disable-next-line quotes
-                                    "I'm a Full Stack Developer!",
+                                    "Eu sou um desenvolvedor Full Stack!",
                                     500,
                                     '',
                                     500,
