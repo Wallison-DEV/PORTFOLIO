@@ -20,8 +20,8 @@ const About = () => {
                 <div>
                     <AboutTitle>Sobre mim</AboutTitle>
                     <AboutText>
-                        Full Stack Python em formação pela EBAC – Escola
-                        Britânica de Artes Criativas e Tecnologia. Profissional
+                        Sou um Full Stack Python em formação pela EBAC – Escola
+                        Britânica de Artes Criativas e Tecnologia. Um profissional
                         com perfil movido a desafios e constantemente buscando
                         aprimoramento na área de tecnologia. Possuo experiências
                         em React, TypeScript, Django, MySql e habilidades em
