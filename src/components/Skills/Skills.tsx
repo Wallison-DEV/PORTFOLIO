@@ -56,9 +56,9 @@ const Skills = () => {
 
     return (
         <SkillsContainer>
-            <SkillsTitle>Skills</SkillsTitle>
+            <SkillsTitle>Habilidades</SkillsTitle>
             <SkillsSubtitle>
-                My hard skills in programming languages and frameworks
+                Minhas habilidades técnicas em linguagens de programação e estruturas/frameworks
             </SkillsSubtitle>
             <SkillsGrid>
                 {SkillsFrontList.map((skill, index) => (
