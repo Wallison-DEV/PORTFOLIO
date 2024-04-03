@@ -12,27 +12,27 @@ function Navbar() {
                 <NavigationMenuList className="flex w-full items-center gap-5 md:flex-row flex-col">
                     <NavigationMenuItem className="px-6">
                         <NavigationMenuLink className="font-bold text-2xl border-round cursor-pointer px-6 py-1 rounded-md hover:bg-gray-100">
-              Start
+                            Start
                         </NavigationMenuLink>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                         <NavigationMenuLink className="font-bold text-2xl border-round cursor-pointer px-6 py-1 rounded-md hover:bg-gray-100">
-              About
+                            About
                         </NavigationMenuLink>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                         <NavigationMenuLink className="font-bold text-2xl border-round cursor-pointer px-6 py-1 rounded-md hover:bg-gray-100">
-              Skills
+                            Skills
                         </NavigationMenuLink>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                         <NavigationMenuLink className="font-bold text-2xl border-round cursor-pointer px-6 py-1 rounded-md hover:bg-gray-100">
-              Projects
+                            Projects
                         </NavigationMenuLink>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                         <NavigationMenuLink className="font-bold text-2xl border-round cursor-pointer px-6 py-1 rounded-md hover:bg-gray-100">
-              Contact
+                            Contact
                         </NavigationMenuLink>
                     </NavigationMenuItem>
                 </NavigationMenuList>

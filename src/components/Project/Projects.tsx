@@ -15,12 +15,17 @@ type ProjectProp = {
     nome: string
     descricao: string
     link: string
-    link2: string
+    link2?: string
 }
+import EplayImg from '@/assets/images/eplay.png'
+import ChatImg from '@/assets/images/chat.png'
+import MapsImg from '@/assets/images/maps.png'
+import TodoImg from '@/assets/images/todo.png'
+import BlogImg from '@/assets/images/django_blog.png'
 
 const ProjectsList: ProjectProp[] = [
     {
-        src: './src/assets/images/eplay.png',
+        src: EplayImg,
         data: 'Mar 2024',
         nome: 'EPLAY',
         descricao:
@@ -29,16 +34,15 @@ const ProjectsList: ProjectProp[] = [
         link2: 'https://eplay-beta.vercel.app/',
     },
     {
-        src: './src/assets/images/weather.png',
-        data: 'Fev 2024',
-        nome: 'Weather Wise',
+        src: ChatImg,
+        data: 'Abr 2024',
+        nome: 'ChatApp',
         descricao:
-            'O "WeatherWise" é uma aplicação web que fornece informações meteorológicas em tempo real para diversas cidades. Com uma interface responsiva e amigável, os usuários podem buscar o clima atual e a previsão do tempo para os próximos dias. Desenvolvido com HTML, CSS e JavaScript, o aplicativo utiliza a API do OpenWeatherMap para obter dados precisos e atualizados. Ideal para quem deseja se manter informado sobre as condições climáticas.',
-        link: 'https://github.com/Wallison-DEV/wather_wise',
-        link2: 'https://weather-wise-gules.vercel.app/',
+            'Este projeto é uma aplicação de chat desenvolvida com Django, REST Framework, Channels e Bootstrap. Permite que os usuários se cadastrem, façam login e conversem em tempo real. Oferece uma interface intuitiva e funcionalidades como lista de contatos, envio de mensagens e visualização de conversas ',
+        link: 'https://github.com/Wallison-DEV/django_chat.git',
     },
     {
-        src: './src/assets/images/maps.png',
+        src: MapsImg,
         data: 'Fev 2024',
         nome: 'Map Search',
         descricao:
@@ -47,22 +51,20 @@ const ProjectsList: ProjectProp[] = [
         link2: 'https://mapsearch.vercel.app/',
     },
     {
-        src: './src/assets/images/todo.png',
+        src: TodoImg,
         data: 'Mar 2024',
         nome: 'To Do List',
         descricao:
             'Este projeto é uma aplicação de lista de tarefas (To Do List) desenvolvida com Django, Bootstrap e outras tecnologias. Ele apresenta diversas páginas, como a página inicial que lista todas as tarefas, a página de detalhes para informações adicionais sobre uma tarefa e a página de cadastro de novas tarefas.',
         link: 'https://github.com/Wallison-DEV/todo_django',
-        link2: 'https://github.com/Wallison-DEV/todo_django',
     },
     {
-        src: './src/assets/images/django_blog.png',
+        src: BlogImg,
         data: 'Jan 2024',
         nome: 'Personal Blog',
         descricao:
             'Este é um projeto de blog desenvolvido utilizando Django, Bootstrap e outras tecnologias relacionadas. A aplicação é composta por várias páginas, incluindo a página inicial que exibe todas as postagens, a página de detalhes que mostra uma postagem com mais informações e a página de cadastro de novas postagens.',
         link: 'https://github.com/Wallison-DEV/django_blog.git',
-        link2: 'https://github.com/Wallison-DEV/django_blog.git',
     },
 ]
 
@@ -98,15 +100,18 @@ const Projects = () => {
                                                 Ver Código
                                             </a>
                                         </Button>
-                                        <Button className="flex items-center w-80 mt-4 bg-blue-600 hover:bg-blue-500">
-                                            <a
-                                                href={project.link2}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
+                                        {project.link2 &&(
+                                            <Button className="flex items-center w-80 mt-4 bg-blue-600 hover:bg-blue-500">
+                                                <a
+                                                    href={project.link2}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
                                                 Ver Projeto
-                                            </a>
-                                        </Button>
+                                                </a>
+                                            </Button>
+                                        )}
+                                        
                                     </div>
                                 </DetailsDiv>
                             </ItemDiv>

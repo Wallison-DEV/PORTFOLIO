@@ -11,6 +11,8 @@ import {
 } from './styles'
 import { CardContent } from '../ui/card'
 
+import AboutImage from '@/assets/images/about.png'
+
 const About = () => {
     return (
         <Container>
@@ -54,8 +56,8 @@ const About = () => {
                 </div>
                 <div className="flex items-center justify-center">
                     <AboutImg
-                        src="./assets/images/about.png"
-                        alt=""
+                        src={AboutImage}
+                        alt="Imagem decorativa da seção sobre"
                         className="w-3/4 md:w-3/4 rounded-full"
                     />
                 </div>
