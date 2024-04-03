@@ -121,6 +121,7 @@ export const FormTextarea = styled.textarea`
     }
     @media (max-width: ${breakpoints.tablet}) {
         min-width: auto;
+        margin-top:16px;
     }
 `
 
@@ -163,5 +164,6 @@ export const FormGrid = styled.div`
 
     @media (max-width: ${breakpoints.tablet}) {
         display: block;
+        margin-bottom: -24px;
     }
 `

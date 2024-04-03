@@ -23,6 +23,7 @@ export const Container = styled.div`
         justify-content: center;
         align-items: center;
         height: auto;
+        margin-right:18px;
     }
     @media (max-width: ${breakpoints.desktop}) {
         max-width: 80vw;
@@ -57,6 +58,7 @@ export const CenteredCarousel = styled(Carousel)`
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-bottom: 20px;
 
         img {
             padding: 0 0 16px;
@@ -65,7 +67,7 @@ export const CenteredCarousel = styled(Carousel)`
 `
 
 export const Content = styled(CarouselContent)`
-    margin-left: 2px;
+    margin-left: 0px;
 `
 
 export const DetailsDiv = styled.div`
