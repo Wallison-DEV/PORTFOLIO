@@ -1,21 +1,21 @@
 import {
     SkillCard,
-    SkillImage,
     SkillName,
     SkillsContainer,
     SkillsGrid,
     SkillsSubtitle,
     SkillsTitle,
+    SkillImageDiv,
 } from './styles'
 
-import ReactImg from '@/assets/icons/react.png'
-import TsImg from '@/assets/icons/ts.png'
+import ReactImg from '@/assets/icons/reactjs.png'
+import TsImg from '@/assets/icons/typescript.png'
 import SassImg from '@/assets/icons/sass.png'
 import BootstrapImg from '@/assets/icons/bootstrap.png'
 import AjaxImg from '@/assets/icons/ajax.png'
 import GruntImg from '@/assets/icons/grunt.svg'
 import CssImg from '@/assets/icons/css.png'
-import JsImg from '@/assets/icons/js.png'
+import JsImg from '@/assets/icons/javascript.png'
 import HtmlImg from '@/assets/icons/html.png'
 import VuejsImg from '@/assets/icons/vuejs.png'
 import NextjsImg from '@/assets/icons/nextjs.png'
@@ -40,8 +40,8 @@ const SkillsFrontList: SkillProps[] = [
     { src: CssImg, language: 'CSS' },
     { src: JsImg, language: 'JavaScript' },
     { src: HtmlImg, language: 'HTML' },
-    { src: VuejsImg, language: 'Vue.js' }, 
-    { src: NextjsImg, language: 'Next.js' }, 
+    { src: VuejsImg, language: 'Vue.js' },
+    { src: NextjsImg, language: 'Next.js' },
 ]
 
 const SkillsBackList: SkillProps[] = [
@@ -63,7 +63,9 @@ const Skills = () => {
             <SkillsGrid>
                 {SkillsFrontList.map((skill, index) => (
                     <SkillCard key={index}>
-                        <SkillImage src={skill.src} alt={skill.language} />
+                        <SkillImageDiv>
+                            <img src={skill.src} alt={skill.language} />
+                        </SkillImageDiv>
                         <SkillName>{skill.language}</SkillName>
                     </SkillCard>
                 ))}
@@ -71,7 +73,9 @@ const Skills = () => {
             <SkillsGrid>
                 {SkillsBackList.map((skill, index) => (
                     <SkillCard key={index}>
-                        <SkillImage src={skill.src} alt={skill.language} />
+                        <SkillImageDiv>
+                            <img src={skill.src} alt={skill.language} />
+                        </SkillImageDiv>
                         <SkillName>{skill.language}</SkillName>
                     </SkillCard>
                 ))}
