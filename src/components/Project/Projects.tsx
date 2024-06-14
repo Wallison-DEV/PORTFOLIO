@@ -21,9 +21,19 @@ import EplayImg from '@/assets/images/eplay.png'
 import ChatImg from '@/assets/images/chat.png'
 import MapsImg from '@/assets/images/maps.png'
 import TodoImg from '@/assets/images/todo.png'
-import BlogImg from '@/assets/images/django_blog.png'
+import XCloneImg from '@/assets/images/xclone.png'
 
 const ProjectsList: ProjectProp[] = [
+
+    {
+        src: XCloneImg,
+        data: 'May 2024',
+        nome: 'xClone',
+        descricao:
+            'O Clone do Twitter é uma aplicação web desenvolvida com React.js e Django, proporcionando uma experiência semelhante à popular rede social. Inspirada no Twitter original, esta aplicação permite aos usuários criar, editar, visualizar e interagir com postagens, comentários e retweets. Utilizando tecnologias modernas como Redux Toolkit para gerenciamento de estado e integração com uma API RESTful, o projeto oferece uma plataforma para compartilhar pensamentos, ideias e momentos com uma comunidade virtual.',
+        link: 'https://github.com/Wallison-DEV/xClone',
+        link2: 'https://x-clone-frontend-neon.vercel.app/'
+    },
     {
         src: EplayImg,
         data: 'Mar 2024',
@@ -57,14 +67,6 @@ const ProjectsList: ProjectProp[] = [
         descricao:
             'Este projeto é uma aplicação de lista de tarefas (To Do List) desenvolvida com Django, Bootstrap e outras tecnologias. Ele apresenta diversas páginas, como a página inicial que lista todas as tarefas, a página de detalhes para informações adicionais sobre uma tarefa e a página de cadastro de novas tarefas.',
         link: 'https://github.com/Wallison-DEV/todo_django',
-    },
-    {
-        src: BlogImg,
-        data: 'Jan 2024',
-        nome: 'Personal Blog',
-        descricao:
-            'Este é um projeto de blog desenvolvido utilizando Django, Bootstrap e outras tecnologias relacionadas. A aplicação é composta por várias páginas, incluindo a página inicial que exibe todas as postagens, a página de detalhes que mostra uma postagem com mais informações e a página de cadastro de novas postagens.',
-        link: 'https://github.com/Wallison-DEV/django_blog.git',
     },
 ]
 
@@ -100,18 +102,18 @@ const Projects = () => {
                                                 Ver Código
                                             </a>
                                         </Button>
-                                        {project.link2 &&(
+                                        {project.link2 && (
                                             <Button className="flex items-center w-80 mt-4 bg-blue-600 hover:bg-blue-500">
                                                 <a
                                                     href={project.link2}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                 >
-                                                Ver Projeto
+                                                    Ver Projeto
                                                 </a>
                                             </Button>
                                         )}
-                                        
+
                                     </div>
                                 </DetailsDiv>
                             </ItemDiv>
@@ -126,7 +128,7 @@ const Projects = () => {
                             href="https://vercel.com/wallisondevs"
                             className="text-white text-center w-full"
                             target="_blank"
-                            rel="noopener noreferrer"   
+                            rel="noopener noreferrer"
                         >
                             Ver mais projetos
                         </a>
