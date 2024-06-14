@@ -41,6 +41,10 @@ export const SkillCard = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    transition: transform 0.3s ease;  
+    &:hover {
+        transform: scale(1.1); 
+    }
 `
 export const SkillName = styled.h6`
     font-size: 16px;
