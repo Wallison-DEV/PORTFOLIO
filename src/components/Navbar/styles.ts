@@ -12,8 +12,8 @@ export const NavbarContainer = styled.div`
     z-index: 1000;
     background-color: white;
     min-height: 40px;
-    `
-    
+`
+
 export const NavigationMenu = styled.div`
     width: 100%;
     display: flex;
@@ -67,13 +67,14 @@ export const NavigationMenuLink = styled.a<{ isActive: boolean }>`
     text-decoration: none; 
     position: relative;
     transition: all 0.2s ease-in-out;
-
+    color: ${({ isActive }) => (isActive ? '#0056b3' : '#111')}; 
+    
     &::after {
         content: '';
         display: block;
         width: 100%;
         height: 2px; 
-        background: ${({ isActive }) => (isActive ? '#000' : 'transparent')};
+        background: ${({ isActive }) => (isActive ? '#0056b3' : 'transparent')}; 
         position: absolute;
         left: 0;
         bottom: 8px; 

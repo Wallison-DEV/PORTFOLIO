@@ -1,11 +1,7 @@
 import styled from 'styled-components'
 import { Carousel, CarouselContent, CarouselItem } from '../ui/carousel'
-import { SecondTitle } from '@/global'
+import { SecondTitle, breakpoints } from '@/global'
 
-export const breakpoints = {
-    desktop: '1024px',
-    tablet: '768px',
-}
 export const Description = styled.p`
     font-size: 1rem;
     color: #555;
@@ -42,7 +38,11 @@ export const ProjectImgDiv = styled.div`
 `
 
 export const CenteredCarousel = styled(Carousel)`
+    user-select: none;
     margin-top: 12px;
+    &:active {
+        cursor: grabbing; 
+    }
     @media (max-width: ${breakpoints.tablet}) {
         width: 75vw;
         display: flex;
