@@ -34,7 +34,8 @@ const Hero = () => {
 							href="https://drive.usercontent.google.com/u/0/uc?id=1iDY0RGvkb69p0nU-URLHdLG4Rqy3RuZe&export=download"
 							target="_blank"
 							rel="noopener noreferrer"
-							data-aos="fade-left">
+							data-aos="fade-left"
+						>
 							<S.StyledIcon>
 								<ArrowDownToLine size={24} />
 							</S.StyledIcon>

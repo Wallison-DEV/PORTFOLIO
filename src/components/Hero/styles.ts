@@ -1,11 +1,11 @@
-import { styled } from 'styled-components'
-import { Container } from '../../global'
+import { styled } from 'styled-components';
+import { Container } from '../../global';
 
 export const StyledHeroContainer = styled(Container)`
     display: flex;
     justify-content: center;
     align-items: center;
-`
+`;
 
 export const StyledContainer = styled.div`
     display: grid;
@@ -24,7 +24,7 @@ export const StyledImg = styled.img`
     border-radius: 50%;
     margin: auto;
     display: block;
-    transition: transform 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 
     &:hover {
         transform: scale(1.05);
@@ -37,7 +37,7 @@ export const StyledH2 = styled.h2`
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 1rem;
-`
+`;
 
 export const StyledTypicalText = styled.div`
     padding-left: 2rem;
@@ -48,7 +48,7 @@ export const StyledTypicalText = styled.div`
     @media (min-width: 768px) {
         padding-left: 0;
     }
-`
+`;
 
 export const StyledButtonContainer = styled.div`
     display: grid;
@@ -56,11 +56,11 @@ export const StyledButtonContainer = styled.div`
     gap: 1rem;
     justify-content: center;
     padding-bottom: 1rem;
-`
+`;
 
 export const StyledIcon = styled.div`
     color: #007bff;
-`
+`;
 
 export const StyledButton = styled.a`
     display: flex;
@@ -74,21 +74,21 @@ export const StyledButton = styled.a`
     text-align: center;
     text-decoration: none;
     border-radius: 8px;
-    transition: all 0.3s ease;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease; 
 
-    p{
+    p {
         color: inherit;
     }
-        
-    ${StyledIcon}{
+
+    ${StyledIcon} {
         color: white;
     }
+
     &:hover {
         background-color: #0056b3;
-        transform: scale(1.05); 
+        transform: scale(1.05);
     }
-`
+`;
 
 export const StyledSocialLinks = styled.div`
     display: flex;
@@ -100,8 +100,7 @@ export const StyledSocialLinks = styled.div`
         transition: all 0.3s ease;
 
         &:hover {
-            transform: scale(1.3); 
+            transform: scale(1.3);
         }
     }
-`
-
+`;
