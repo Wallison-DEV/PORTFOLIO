@@ -2,19 +2,6 @@ import styled from 'styled-components'
 import { breakpoints } from '../../global'
 import { StyledButton } from '../Hero/styles'
 
-export const ContactContainer = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	padding-top: 16px;
-	padding: 10px;
-
-	@media (max-width: ${breakpoints.tablet}) {
-		margin-top: 70vh;
-	}
-`
-
 export const ContactTitle = styled.h1`
 	font-weight: bold;
 	font-size: 2rem;
