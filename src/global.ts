@@ -9,7 +9,7 @@ export const Container = styled.div`
     display: flex; 
     flex-direction: column; 
     justify-content: center;  
-    padding: 80px;
+    padding: 0 40px 20px;
     max-width: 1024px;
     min-height: 100vh;
     width: 100%;

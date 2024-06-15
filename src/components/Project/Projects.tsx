@@ -1,12 +1,10 @@
 import { CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
-import { Button } from '@/components/ui/button'
-
 import * as S from './styles'
 import * as Img from '@/assets/src'
+import { Container, PrimaryTitle, SecondTitle } from '@/global'
+import { StyledButton } from '../Hero/styles'
 
-import { Container } from '@/global'
-
-const ProjectsList: ProjectProp[] = [
+const ProjectsList = [
 	{
 		src: Img.XCloneImg,
 		data: 'May 2024',
@@ -56,47 +54,30 @@ const Projects = () => {
 	return (
 		<Container>
 			<div>
-				<h1 className="font-bold pb-6 text-5xl mb-6">Projetos</h1>
+				<PrimaryTitle>Projetos</PrimaryTitle>
 				<S.CenteredCarousel>
 					<S.Content>
 						{ProjectsList.map((project, index) => (
 							<S.ItemDiv key={index}>
-								<div>
-									<S.ProjectImg src={project.src} alt="" />
-								</div>
+								<S.ProjectImgDiv>
+									<img src={project.src} alt="" />
+								</S.ProjectImgDiv>
 								<S.DetailsDiv>
-									<div className="pb-4">
-										<span className="text-3xl font-semibold block">
-											{project.nome}
-										</span>
-										<span className="font-semibold block">
-											{project.data}
-										</span>
+									<div>
+										<SecondTitle>{project.nome}</SecondTitle>
+										<S.ProjectDate>{project.data}</S.ProjectDate>
 									</div>
-									<p className="mb-4">{project.descricao}</p>
-									<div className="gap-4 flex justify-center items-center">
-										<Button className="flex items-center w-80 mt-4 bg-blue-600 hover:bg-blue-500">
-											<a
-												href={project.link}
-												target="_blank"
-												rel="noopener noreferrer"
-											>
-												Ver Código
-											</a>
-										</Button>
+									<S.Description>{project.descricao}</S.Description>
+									<S.ButtonGroup>
+										<StyledButton href={project.link} target="_blank" rel="noopener noreferrer">
+											Ver Código
+										</StyledButton>
 										{project.link2 && (
-											<Button className="flex items-center w-80 mt-4 bg-blue-600 hover:bg-blue-500">
-												<a
-													href={project.link2}
-													target="_blank"
-													rel="noopener noreferrer"
-												>
-													Ver Projeto
-												</a>
-											</Button>
+											<StyledButton href={project.link2} target="_blank" rel="noopener noreferrer">
+												Ver Projeto
+											</StyledButton>
 										)}
-
-									</div>
+									</S.ButtonGroup>
 								</S.DetailsDiv>
 							</S.ItemDiv>
 						))}
@@ -104,18 +85,11 @@ const Projects = () => {
 					<CarouselPrevious />
 					<CarouselNext />
 				</S.CenteredCarousel>
-				<div className="flex justify-center md:mt-12">
-					<Button className="flex items-center w-80 bg-blue-600 hover:bg-blue-500">
-						<a
-							href="https://vercel.com/wallisondevs"
-							className="text-white text-center w-full"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							Ver mais projetos
-						</a>
-					</Button>
-				</div>
+				<S.CenterButton>
+					<StyledButton href="https://vercel.com/wallisondevs" target="_blank" rel="noopener noreferrer">
+						Ver mais projetos
+					</StyledButton>
+				</S.CenterButton>
 			</div>
 		</Container>
 	)
