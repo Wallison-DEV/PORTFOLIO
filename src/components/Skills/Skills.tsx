@@ -1,11 +1,6 @@
 import { Container, PrimaryTitle, SecondTitle } from '@/global'
 import * as S from './styles'
-import * as Icons from './icons'
-
-type SkillProps = {
-    src: string;
-    language: string;
-};
+import * as Icons from '@/assets/src'
 
 const SkillsFrontList: SkillProps[] = [
 	{ src: Icons.ReactImg, language: 'React' },
@@ -34,7 +29,7 @@ const Skills = () => {
 		<Container style={{ textAlign: 'center' }}>
 			<PrimaryTitle as="h2">Habilidades</PrimaryTitle>
 			<SecondTitle>
-                Minhas habilidades técnicas em linguagens de programação e estruturas/frameworks
+				Minhas habilidades técnicas em linguagens de programação e estruturas/frameworks
 			</SecondTitle>
 			<S.SkillsGrid>
 				{SkillsFrontList.map((skill, index) => (

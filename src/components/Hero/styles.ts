@@ -58,18 +58,20 @@ export const StyledIcon = styled.div`
 `
 
 export const StyledButton = styled.a`
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    padding: 1rem;
-    border-radius: 0.375rem;
+    width: 100%;
+    margin-top: 16px;
+    padding: 8px;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
     transition: all 0.3s ease;
-    
+    transition: background-color 0.3s;
+
     p{
         color: inherit;
     }
