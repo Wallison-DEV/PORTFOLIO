@@ -1,25 +1,26 @@
-import { Linkedin, Github, Mail, ArrowDownToLine } from 'lucide-react'
-import Typical from 'react-typical'
-
-import * as S from './styles'
-
-import HeroImg from '@/assets/images/avatar.png'
+import Tilt from 'react-parallax-tilt';
+import { Linkedin, Github, Mail, ArrowDownToLine } from 'lucide-react';
+import Typical from 'react-typical';
+import * as S from './styles';
+import HeroImg from '@/assets/images/avatar.png';
 
 const Hero = () => {
 	return (
 		<S.StyledHeroContainer>
-			<S.StyledContainer>
+			<S.StyledContainer data-aos="fade-up">
 				<div>
-					<S.StyledImg src={HeroImg} alt="Avatar" />
+					<Tilt tiltMaxAngleX={20} tiltMaxAngleY={20} glareEnable={true} glareMaxOpacity={0.8}>
+						<S.StyledImg src={HeroImg} alt="Avatar" />
+					</Tilt>
 				</div>
 				<div>
-					<S.StyledH2>Wallison Costa</S.StyledH2>
+					<S.StyledH2 data-aos="fade-right">Wallison Costa</S.StyledH2>
 					<S.StyledTypicalText>
 						<Typical
 							steps={[
-								'I\'m a Software Engineer',
+								"I'm a Software Engineer",
 								1000,
-								'I\'m a Full Stack Developer!',
+								"I'm a Full Stack Developer!",
 								500,
 								'',
 								500,
@@ -32,15 +33,18 @@ const Hero = () => {
 						<S.StyledButton
 							href="https://drive.usercontent.google.com/u/0/uc?id=1iDY0RGvkb69p0nU-URLHdLG4Rqy3RuZe&export=download"
 							target="_blank"
-							rel="noopener noreferrer">
-							<S.StyledIcon><ArrowDownToLine size={24} /></S.StyledIcon>
-							<p>
-                                Download CV
-							</p>
+							rel="noopener noreferrer"
+							data-aos="fade-left">
+							<S.StyledIcon>
+								<ArrowDownToLine size={24} />
+							</S.StyledIcon>
+							<p>Download CV</p>
 						</S.StyledButton>
-						<S.StyledButton href="#contacts">
-							<S.StyledIcon><Mail size={24} /></S.StyledIcon>
-							<p >Contact me</p>
+						<S.StyledButton href="#contacts" data-aos="fade-left">
+							<S.StyledIcon>
+								<Mail size={24} />
+							</S.StyledIcon>
+							<p>Contact me</p>
 						</S.StyledButton>
 					</S.StyledButtonContainer>
 					<S.StyledSocialLinks>
@@ -48,21 +52,25 @@ const Hero = () => {
 							href="https://github.com/Wallison-DEV"
 							target="_blank"
 							rel="noopener noreferrer"
-						>
-							<S.StyledIcon><Github size={24} /></S.StyledIcon>
+							data-aos="zoom-in">
+							<S.StyledIcon>
+								<Github size={24} />
+							</S.StyledIcon>
 						</a>
 						<a
 							href="https://www.linkedin.com/in/wallison-python-dev/"
 							target="_blank"
 							rel="noopener noreferrer"
-						>
-							<S.StyledIcon><Linkedin size={24} /></S.StyledIcon>
+							data-aos="zoom-in">
+							<S.StyledIcon>
+								<Linkedin size={24} />
+							</S.StyledIcon>
 						</a>
 					</S.StyledSocialLinks>
 				</div>
 			</S.StyledContainer>
 		</S.StyledHeroContainer>
-	)
-}
+	);
+};
 
-export default Hero
+export default Hero;

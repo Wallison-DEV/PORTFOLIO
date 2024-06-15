@@ -15,7 +15,7 @@ export const StyledContainer = styled.div`
     @media (min-width: 768px) {
         grid-template-columns: 5fr 7fr;
     }
-`
+`;
 
 export const StyledImg = styled.img`
     width: 75%;
@@ -24,7 +24,12 @@ export const StyledImg = styled.img`
     border-radius: 50%;
     margin: auto;
     display: block;
-`
+    transition: transform 0.2s ease-in-out;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+`;
 
 export const StyledH2 = styled.h2`
     color: #333;
