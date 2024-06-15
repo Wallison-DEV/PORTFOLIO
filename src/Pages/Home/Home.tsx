@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 import Hero from '../../components/Hero/Hero'
 import About from '../../components/About/About'
 import Skills from '../../components/Skills/Skills'
@@ -8,6 +11,12 @@ import Contacts from '../../components/Contact/Contacts'
 import * as S from '../../components/Navbar/styles'
 
 function Home() {
+	useEffect(() => {
+		AOS.init({
+			duration: 1000,
+			once: true,
+		});
+	}, []);
 	const [isOpen, setIsOpen] = useState(false)
 	const [activeSection, setActiveSection] = useState('')
 
@@ -63,27 +72,27 @@ function Home() {
 					<S.NavigationMenuList isOpen={isOpen}>
 						<S.NavigationMenuItem>
 							<S.NavigationMenuLink href="#start" isActive={activeSection === 'start'}>
-                                Inicio
+								Inicio
 							</S.NavigationMenuLink>
 						</S.NavigationMenuItem>
 						<S.NavigationMenuItem>
 							<S.NavigationMenuLink href="#about" isActive={activeSection === 'about'}>
-                                Sobre
+								Sobre
 							</S.NavigationMenuLink>
 						</S.NavigationMenuItem>
 						<S.NavigationMenuItem>
 							<S.NavigationMenuLink href="#skills" isActive={activeSection === 'skills'}>
-                                Habilidades
+								Habilidades
 							</S.NavigationMenuLink>
 						</S.NavigationMenuItem>
 						<S.NavigationMenuItem>
 							<S.NavigationMenuLink href="#projects" isActive={activeSection === 'projects'}>
-                                Projetos
+								Projetos
 							</S.NavigationMenuLink>
 						</S.NavigationMenuItem>
 						<S.NavigationMenuItem>
 							<S.NavigationMenuLink href="#contacts" isActive={activeSection === 'contacts'}>
-                                Contatos
+								Contatos
 							</S.NavigationMenuLink>
 						</S.NavigationMenuItem>
 					</S.NavigationMenuList>
