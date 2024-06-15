@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import { Linkedin, Github, Mail, PhoneCall, Send } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
-import { Container } from '../Project/styles'
+import { Container } from '../../global'
 import {
     ContactContainer,
     ContactTitle,
@@ -166,9 +166,8 @@ const Contact = () => {
 
                     <div
                         id="toast-simple"
-                        className={`fixed ${
-                            alert ? 'bottom-5' : 'bottom-[-400px]'
-                        } transition-all duration-500 right-5 flex items-center w-full max-w-xs p-4 space-x-4 text-gray-500 bg-white divide-x divide-gray-200 rounded-lg shadow dark:text-gray-400 dark:divide-gray-700 space-x dark:bg-gray-800`}
+                        className={`fixed ${alert ? 'bottom-5' : 'bottom-[-400px]'
+                            } transition-all duration-500 right-5 flex items-center w-full max-w-xs p-4 space-x-4 text-gray-500 bg-white divide-x divide-gray-200 rounded-lg shadow dark:text-gray-400 dark:divide-gray-700 space-x dark:bg-gray-800`}
                         role="alert"
                     >
                         <svg

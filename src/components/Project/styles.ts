@@ -1,35 +1,6 @@
 import styled from 'styled-components'
 import { Carousel, CarouselContent, CarouselItem } from '../ui/carousel'
-
-export const breakpoints = {
-    desktop: '1024px',
-    tablet: '768px',
-}
-
-export const Container = styled.div`
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center;  
-    padding: 80px 0;
-    max-width: 1024px;
-    height: 100vh;
-    width: 100%;
-    margin: 0 auto;
-    max-height: 900px;
-
-    @media (max-width: ${breakpoints.tablet}) {
-        margin: 80px auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: auto;
-        margin-right:18px;
-    }
-    @media (max-width: ${breakpoints.desktop}) {
-        max-width: 80vw;
-        height: auto;
-    }
-`
+import { breakpoints } from '@/global'
 
 export const ItemDiv = styled(CarouselItem)`
     border: 2px solid #ccc;
