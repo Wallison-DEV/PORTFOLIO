@@ -5,13 +5,7 @@ import Skills from '../../components/Skills/Skills';
 import Projects from '../../components/Project/Projects';
 import Contacts from '../../components/Contact/Contacts';
 
-import {
-    NavbarContainer,
-    NavigationMenu,
-    NavigationMenuItem,
-    NavigationMenuList,
-    NavigationMenuLink,
-} from '../../components/Navbar/styles';
+import * as S from '../../components/Navbar/styles';
 
 function Home() {
     const [isOpen, setIsOpen] = useState(false);
@@ -46,8 +40,8 @@ function Home() {
 
     return (
         <div>
-            <NavbarContainer>
-                <NavigationMenu>
+            <S.NavbarContainer>
+                <S.NavigationMenu>
                     <div className='hamburguer'>
                         <button onClick={toggleMenu}>
                             <svg
@@ -66,35 +60,35 @@ function Home() {
                             </svg>
                         </button>
                     </div>
-                    <NavigationMenuList isOpen={isOpen}>
-                        <NavigationMenuItem>
-                            <NavigationMenuLink href="#start" isActive={activeSection === 'start'}>
+                    <S.NavigationMenuList isOpen={isOpen}>
+                        <S.NavigationMenuItem>
+                            <S.NavigationMenuLink href="#start" isActive={activeSection === 'start'}>
                                 Inicio
-                            </NavigationMenuLink>
-                        </NavigationMenuItem>
-                        <NavigationMenuItem>
-                            <NavigationMenuLink href="#about" isActive={activeSection === 'about'}>
+                            </S.NavigationMenuLink>
+                        </S.NavigationMenuItem>
+                        <S.NavigationMenuItem>
+                            <S.NavigationMenuLink href="#about" isActive={activeSection === 'about'}>
                                 Sobre
-                            </NavigationMenuLink>
-                        </NavigationMenuItem>
-                        <NavigationMenuItem>
-                            <NavigationMenuLink href="#skills" isActive={activeSection === 'skills'}>
+                            </S.NavigationMenuLink>
+                        </S.NavigationMenuItem>
+                        <S.NavigationMenuItem>
+                            <S.NavigationMenuLink href="#skills" isActive={activeSection === 'skills'}>
                                 Habilidades
-                            </NavigationMenuLink>
-                        </NavigationMenuItem>
-                        <NavigationMenuItem>
-                            <NavigationMenuLink href="#projects" isActive={activeSection === 'projects'}>
+                            </S.NavigationMenuLink>
+                        </S.NavigationMenuItem>
+                        <S.NavigationMenuItem>
+                            <S.NavigationMenuLink href="#projects" isActive={activeSection === 'projects'}>
                                 Projetos
-                            </NavigationMenuLink>
-                        </NavigationMenuItem>
-                        <NavigationMenuItem>
-                            <NavigationMenuLink href="#contacts" isActive={activeSection === 'contacts'}>
+                            </S.NavigationMenuLink>
+                        </S.NavigationMenuItem>
+                        <S.NavigationMenuItem>
+                            <S.NavigationMenuLink href="#contacts" isActive={activeSection === 'contacts'}>
                                 Contatos
-                            </NavigationMenuLink>
-                        </NavigationMenuItem>
-                    </NavigationMenuList>
-                </NavigationMenu>
-            </NavbarContainer>
+                            </S.NavigationMenuLink>
+                        </S.NavigationMenuItem>
+                    </S.NavigationMenuList>
+                </S.NavigationMenu>
+            </S.NavbarContainer>
             <div>
                 <div id="start">
                     <Hero />
