@@ -1,36 +1,55 @@
-import { useState } from 'react'
-import Hero from '../../components/Hero/Hero'
-import About from '../../components/About/About'
-import Skills from '../../components/Skills/Skills'
-import Projects from '../../components/Project/Projects'
-import Contacts from '../../components/Contact/Contacts'
+import { useState, useEffect } from 'react';
+import Hero from '../../components/Hero/Hero';
+import About from '../../components/About/About';
+import Skills from '../../components/Skills/Skills';
+import Projects from '../../components/Project/Projects';
+import Contacts from '../../components/Contact/Contacts';
 
 import {
+    NavbarContainer,
     NavigationMenu,
     NavigationMenuItem,
     NavigationMenuList,
     NavigationMenuLink,
-} from '../../components/ui/navigation-menu'
+} from '../../components/Navbar/styles';
 
 function Home() {
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState('');
 
     const toggleMenu = () => {
-        setIsOpen(!isOpen)
-    }
+        setIsOpen(!isOpen);
+    };
+
+    const handleScroll = () => {
+        const sections = ['start', 'about', 'skills', 'projects', 'contacts'];
+        const scrollPos = window.scrollY + window.innerHeight / 2;
+
+        for (const section of sections) {
+            const element = document.getElementById(section);
+            if (element) {
+                const { offsetTop, offsetHeight } = element;
+                if (scrollPos > offsetTop && scrollPos < offsetTop + offsetHeight) {
+                    setActiveSection(section);
+                    break;
+                }
+            }
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     return (
-        <div className="w-screen">
-            <div
-                style={{ backgroundColor: '#F6F5F5' }}
-                className="w-full border-b fixed top-0 left-0 right-0 flex py-3 z-[1] justify-center shadow-md"
-            >
-                <NavigationMenu className="w-full wrapper flex items-center justify-between px-6 md:px-20">
-                    <div className="flex items-center">
-                        <button
-                            onClick={toggleMenu}
-                            className="block md:hidden focus:outline-none"
-                        >
+        <div>
+            <NavbarContainer>
+                <NavigationMenu>
+                    <div className='hamburguer'>
+                        <button onClick={toggleMenu}>
                             <svg
                                 className="w-6 h-6 text-gray-800"
                                 fill="none"
@@ -47,54 +66,35 @@ function Home() {
                             </svg>
                         </button>
                     </div>
-                    <NavigationMenuList
-                        className={`${
-                            isOpen ? 'block' : 'hidden'
-                        } md:flex w-full md:w-auto md:flex-row flex-col md:flex-row`}
-                    >
-                        <NavigationMenuItem className="px-6">
-                            <NavigationMenuLink
-                                href="#start"
-                                className="font-bold text-2xl border-round cursor-pointer px-6 py-1 rounded-md hover:bg-gray-100"
-                            >
+                    <NavigationMenuList isOpen={isOpen}>
+                        <NavigationMenuItem>
+                            <NavigationMenuLink href="#start" isActive={activeSection === 'start'}>
                                 Inicio
                             </NavigationMenuLink>
                         </NavigationMenuItem>
                         <NavigationMenuItem>
-                            <NavigationMenuLink
-                                href="#about"
-                                className="font-bold text-2xl border-round cursor-pointer px-6 py-1 rounded-md hover:bg-gray-100"
-                            >
+                            <NavigationMenuLink href="#about" isActive={activeSection === 'about'}>
                                 Sobre
                             </NavigationMenuLink>
                         </NavigationMenuItem>
                         <NavigationMenuItem>
-                            <NavigationMenuLink
-                                href="#skills"
-                                className="font-bold text-2xl border-round cursor-pointer px-6 py-1 rounded-md hover:bg-gray-100"
-                            >
+                            <NavigationMenuLink href="#skills" isActive={activeSection === 'skills'}>
                                 Habilidades
                             </NavigationMenuLink>
                         </NavigationMenuItem>
                         <NavigationMenuItem>
-                            <NavigationMenuLink
-                                href="#projects"
-                                className="font-bold text-2xl border-round cursor-pointer px-6 py-1 rounded-md hover:bg-gray-100"
-                            >
+                            <NavigationMenuLink href="#projects" isActive={activeSection === 'projects'}>
                                 Projetos
                             </NavigationMenuLink>
                         </NavigationMenuItem>
                         <NavigationMenuItem>
-                            <NavigationMenuLink
-                                href="#contacts"
-                                className="font-bold text-2xl border-round cursor-pointer px-6 py-1 rounded-md hover:bg-gray-100"
-                            >
+                            <NavigationMenuLink href="#contacts" isActive={activeSection === 'contacts'}>
                                 Contatos
                             </NavigationMenuLink>
                         </NavigationMenuItem>
                     </NavigationMenuList>
                 </NavigationMenu>
-            </div>
+            </NavbarContainer>
             <div>
                 <div id="start">
                     <Hero />
@@ -113,7 +113,7 @@ function Home() {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
-export default Home
+export default Home;
