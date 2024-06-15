@@ -1,87 +1,63 @@
-import {
-    SkillCard,
-    SkillName,
-    SkillsContainer,
-    SkillsGrid,
-    SkillsSubtitle,
-    SkillsTitle,
-    SkillImageDiv,
-} from './styles'
-
-import ReactImg from '@/assets/icons/reactjs.png'
-import TsImg from '@/assets/icons/typescript.png'
-import SassImg from '@/assets/icons/sass.png'
-import BootstrapImg from '@/assets/icons/bootstrap.png'
-import AjaxImg from '@/assets/icons/ajax.png'
-import GruntImg from '@/assets/icons/grunt.svg'
-import CssImg from '@/assets/icons/css.png'
-import JsImg from '@/assets/icons/javascript.png'
-import HtmlImg from '@/assets/icons/html.png'
-import VuejsImg from '@/assets/icons/vuejs.png'
-import NextjsImg from '@/assets/icons/nextjs.png'
-import PythonImg from '@/assets/icons/python.svg'
-import MysqlImg from '@/assets/icons/mysql.png'
-import DjangoImg from '@/assets/icons/django.svg'
-import RestapiImg from '@/assets/icons/restapi.png'
-import CppImg from '@/assets/icons/cpp.png'
+import { Container, PrimaryTitle, SecondTitle } from '@/global'
+import * as S from './styles'
+import * as Icons from './icons'
 
 type SkillProps = {
-    src: string
-    language: string
-}
+    src: string;
+    language: string;
+};
 
 const SkillsFrontList: SkillProps[] = [
-    { src: ReactImg, language: 'React' },
-    { src: TsImg, language: 'TypeScript' },
-    { src: SassImg, language: 'Sass' },
-    { src: BootstrapImg, language: 'Bootstrap' },
-    { src: AjaxImg, language: 'Ajax' },
-    { src: GruntImg, language: 'Grunt' },
-    { src: CssImg, language: 'CSS' },
-    { src: JsImg, language: 'JavaScript' },
-    { src: HtmlImg, language: 'HTML' },
-    { src: VuejsImg, language: 'Vue.js' },
-    { src: NextjsImg, language: 'Next.js' },
+	{ src: Icons.ReactImg, language: 'React' },
+	{ src: Icons.TsImg, language: 'TypeScript' },
+	{ src: Icons.NextjsImg, language: 'Next.js' },
+	{ src: Icons.VuejsImg, language: 'Vue.js' },
+	{ src: Icons.AjaxImg, language: 'Ajax' },
+	{ src: Icons.CssImg, language: 'CSS' },
+	{ src: Icons.JsImg, language: 'JavaScript' },
+	{ src: Icons.HtmlImg, language: 'HTML' },
+	{ src: Icons.SassImg, language: 'Sass' },
+	{ src: Icons.BootstrapImg, language: 'Bootstrap' },
+	{ src: Icons.GruntImg, language: 'Grunt' },
 ]
 
 const SkillsBackList: SkillProps[] = [
-    { src: PythonImg, language: 'Python' },
-    { src: MysqlImg, language: 'MySql' },
-    { src: DjangoImg, language: 'Django' },
-    { src: RestapiImg, language: 'Rest Api' },
-    { src: CppImg, language: 'C++' },
+	{ src: Icons.PythonImg, language: 'Python' },
+	{ src: Icons.MysqlImg, language: 'MySql' },
+	{ src: Icons.DjangoImg, language: 'Django' },
+	{ src: Icons.RestapiImg, language: 'Rest Api' },
+	{ src: Icons.CppImg, language: 'C++' },
 ]
 
 const Skills = () => {
-
-    return (
-        <SkillsContainer>
-            <SkillsTitle>Habilidades</SkillsTitle>
-            <SkillsSubtitle>
+	return (
+		<Container style={{ textAlign: 'center' }}>
+			<PrimaryTitle as="h2">Habilidades</PrimaryTitle>
+			<SecondTitle>
                 Minhas habilidades técnicas em linguagens de programação e estruturas/frameworks
-            </SkillsSubtitle>
-            <SkillsGrid>
-                {SkillsFrontList.map((skill, index) => (
-                    <SkillCard key={index}>
-                        <SkillImageDiv>
-                            <img src={skill.src} alt={skill.language} />
-                        </SkillImageDiv>
-                        <SkillName>{skill.language}</SkillName>
-                    </SkillCard>
-                ))}
-            </SkillsGrid>
-            <SkillsGrid>
-                {SkillsBackList.map((skill, index) => (
-                    <SkillCard key={index}>
-                        <SkillImageDiv>
-                            <img src={skill.src} alt={skill.language} />
-                        </SkillImageDiv>
-                        <SkillName>{skill.language}</SkillName>
-                    </SkillCard>
-                ))}
-            </SkillsGrid>
-        </SkillsContainer>
-    )
+			</SecondTitle>
+			<S.SkillsGrid>
+				{SkillsFrontList.map((skill, index) => (
+					<S.SkillCard key={index}>
+						<S.SkillImageDiv>
+							<img src={skill.src} alt={skill.language} />
+						</S.SkillImageDiv>
+						<S.SkillName>{skill.language}</S.SkillName>
+					</S.SkillCard>
+				))}
+			</S.SkillsGrid>
+			<S.SkillsGrid>
+				{SkillsBackList.map((skill, index) => (
+					<S.SkillCard key={index}>
+						<S.SkillImageDiv>
+							<img src={skill.src} alt={skill.language} />
+						</S.SkillImageDiv>
+						<S.SkillName>{skill.language}</S.SkillName>
+					</S.SkillCard>
+				))}
+			</S.SkillsGrid>
+		</Container>
+	)
 }
 
 export default Skills
