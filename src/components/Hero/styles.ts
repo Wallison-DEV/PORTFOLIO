@@ -1,11 +1,11 @@
-import { styled } from "styled-components";
-import { Container } from '../../global';
+import { styled } from 'styled-components'
+import { Container } from '../../global'
 
 export const StyledHeroContainer = styled(Container)`
     display: flex;
     justify-content: center;
     align-items: center;
-`;
+`
 
 export const StyledContainer = styled.div`
     display: grid;
@@ -15,7 +15,7 @@ export const StyledContainer = styled.div`
     @media (min-width: 768px) {
         grid-template-columns: 5fr 7fr;
     }
-`;
+`
 
 export const StyledImg = styled.img`
     width: 75%;
@@ -24,7 +24,7 @@ export const StyledImg = styled.img`
     border-radius: 50%;
     margin: auto;
     display: block;
-`;
+`
 
 export const StyledH2 = styled.h2`
     color: #333;
@@ -32,7 +32,7 @@ export const StyledH2 = styled.h2`
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 1rem;
-`;
+`
 
 export const StyledTypicalText = styled.div`
     padding-left: 2rem;
@@ -43,7 +43,7 @@ export const StyledTypicalText = styled.div`
     @media (min-width: 768px) {
         padding-left: 0;
     }
-`;
+`
 
 export const StyledButtonContainer = styled.div`
     display: grid;
@@ -51,11 +51,11 @@ export const StyledButtonContainer = styled.div`
     gap: 1rem;
     justify-content: center;
     padding-bottom: 1rem;
-`;
+`
 
 export const StyledIcon = styled.div`
     color: #007bff;
-`;
+`
 
 export const StyledButton = styled.a`
     background-color: #007bff;
@@ -81,7 +81,7 @@ export const StyledButton = styled.a`
         background-color: #0056b3;
         transform: scale(1.05); 
     }
-`;
+`
 
 export const StyledSocialLinks = styled.div`
     display: flex;
@@ -96,5 +96,5 @@ export const StyledSocialLinks = styled.div`
             transform: scale(1.3); 
         }
     }
-`;
+`
 

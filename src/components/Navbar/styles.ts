@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const NavbarContainer = styled.div`
     width: 100%;
@@ -12,7 +12,7 @@ export const NavbarContainer = styled.div`
     z-index: 1000;
     background-color: white;
     min-height: 40px;
-    `;
+    `
     
 export const NavigationMenu = styled.div`
     width: 100%;
@@ -29,7 +29,7 @@ export const NavigationMenu = styled.div`
             left: 16px;
         }
     }
-`;
+`
 
 export const NavigationMenuList = styled.ul<{ isOpen: boolean }>`
     display: flex;
@@ -48,7 +48,7 @@ export const NavigationMenuList = styled.ul<{ isOpen: boolean }>`
         opacity: 1;
         transition: none;
     }
-`;
+`
 
 export const NavigationMenuItem = styled.li`
     transition: transform 0.3s ease-in-out;
@@ -56,7 +56,7 @@ export const NavigationMenuItem = styled.li`
     &:hover {
         transform: scale(1.1); 
     }
-`;
+`
 
 export const NavigationMenuLink = styled.a<{ isActive: boolean }>`
     font-weight: bold;
@@ -83,4 +83,4 @@ export const NavigationMenuLink = styled.a<{ isActive: boolean }>`
     &:hover::after {
         background: #2a2a2a;
     }
-`;
+`

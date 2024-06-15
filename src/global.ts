@@ -1,15 +1,8 @@
-import styled from "styled-components";
-
-export const PrimaryTitle = styled.h1`
-    font-size: 2rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 1rem;
-`
+import styled from 'styled-components'
 
 export const breakpoints = {
-    desktop: '1024px',
-    tablet: '768px',
+	desktop: '1024px',
+	tablet: '768px',
 }
 
 export const Container = styled.div`
@@ -40,4 +33,17 @@ export const PrimaryText = styled.p`
     font-size: 1.25rem;
     line-height: 1.6;
     color: #555;
-`;
+`
+
+export const PrimaryTitle = styled.h1`
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+`
+
+export const SecondTitle = styled.h2`
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 0.8rem;
+`
