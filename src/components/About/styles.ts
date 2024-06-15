@@ -1,5 +1,27 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { breakpoints } from '../../global'
+
+const slideInFromLeft = keyframes`
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+`
+
+const slideInFromRight = keyframes`
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+`
 
 export const GridContainer = styled.div`
     width: 100%;
@@ -18,6 +40,15 @@ export const AboutContent = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 0.6s ease-out;
+
+    &.animate {
+        opacity: 1;
+        transform: translateX(0);
+        animation: ${slideInFromLeft} 0.6s ease-out forwards;
+    }
 `
 
 export const StatsGrid = styled.div`
@@ -34,6 +65,28 @@ export const Card = styled.div`
     transition: all 0.3s ease-in-out;
     padding: 20px;
     cursor: pointer;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.6s ease-out;
+
+    &:nth-child(1),
+    &:nth-child(3) {
+        transform: translateX(-100%);
+    }
+
+    &.animate {
+        opacity: 1;
+        transform: translateX(0);
+        &:nth-child(1),
+        &:nth-child(3) {
+            animation: ${slideInFromLeft} 0.6s ease-out forwards;
+        }
+
+        &:nth-child(2),
+        &:nth-child(4) {
+            animation: ${slideInFromRight} 0.6s ease-out forwards;
+        }
+    }
 
     &:hover {
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -66,9 +119,18 @@ export const CardText = styled.div`
 export const ImageContainer = styled.div`
     display: flex;
     justify-content: center;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.6s ease-out;
 
     @media (max-width: ${breakpoints.desktop}) {
         display: none;
+    }
+
+    &.animate {
+        opacity: 1;
+        transform: translateX(0);
+        animation: ${slideInFromRight} 0.6s ease-out forwards;
     }
 `
 
@@ -78,5 +140,9 @@ export const AboutImg = styled.img`
     max-width: 100%;
     max-height: 100%;
     border-radius: 50%;
-`
 
+    &:hover{
+        transition: all 0.3 ease-in-out;
+        transform: scale(1.1);
+    }
+`    
