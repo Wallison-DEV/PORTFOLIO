@@ -52,14 +52,14 @@ const ProjectsList = [
 
 const Projects = () => {
 	return (
-		<Container>
+		<Container data-aos="fade-right">
 			<div>
 				<PrimaryTitle>Projetos</PrimaryTitle>
 				<S.CenteredCarousel>
-					<S.Content>
+					<S.Content data-aos="fade-down">
 						{ProjectsList.map((project, index) => (
 							<S.ItemDiv key={index}>
-								<S.ProjectImgDiv>
+								<S.ProjectImgDiv data-aos="fade-left">
 									<img src={project.src} alt="" />
 								</S.ProjectImgDiv>
 								<S.DetailsDiv>

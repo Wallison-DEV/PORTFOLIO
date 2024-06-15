@@ -82,6 +82,6 @@ export const NavigationMenuLink = styled.a<{ isActive: boolean }>`
     }
 
     &:hover::after {
-        background: #2a2a2a;
+        background: ${({ isActive }) => (isActive ? '#0056b3' : '#111')};
     }
 `

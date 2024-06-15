@@ -1,3 +1,6 @@
+import { useEffect } from 'react'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import Tilt from 'react-parallax-tilt';
 import { Linkedin, Github, Mail, ArrowDownToLine } from 'lucide-react';
 import Typical from 'react-typical';
@@ -5,6 +8,13 @@ import * as S from './styles';
 import HeroImg from '@/assets/images/avatar.png';
 
 const Hero = () => {
+	useEffect(() => {
+		AOS.init({
+			duration: 1000,
+			once: false,
+		});
+	}, []);
+
 	return (
 		<S.StyledHeroContainer>
 			<S.StyledContainer data-aos="fade-up">
