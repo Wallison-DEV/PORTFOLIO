@@ -1,14 +1,7 @@
 import { CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
 import { Button } from '@/components/ui/button'
 
-import {
-    ItemDiv,
-    Container,
-    ProjectImg,
-    CenteredCarousel,
-    Content,
-    DetailsDiv,
-} from './styles'
+import * as S from './styles'
 type ProjectProp = {
     src: string
     data: string
@@ -22,6 +15,7 @@ import ChatImg from '@/assets/images/chat.png'
 import MapsImg from '@/assets/images/maps.png'
 import TodoImg from '@/assets/images/todo.png'
 import XCloneImg from '@/assets/images/xclone.png'
+import { Container } from '@/global'
 
 const ProjectsList: ProjectProp[] = [
 
@@ -75,14 +69,14 @@ const Projects = () => {
         <Container>
             <div>
                 <h1 className="font-bold pb-6 text-5xl mb-6">Projetos</h1>
-                <CenteredCarousel>
-                    <Content>
+                <S.CenteredCarousel>
+                    <S.Content>
                         {ProjectsList.map((project, index) => (
-                            <ItemDiv key={index}>
+                            <S.ItemDiv key={index}>
                                 <div>
-                                    <ProjectImg src={project.src} alt="" />
+                                    <S.ProjectImg src={project.src} alt="" />
                                 </div>
-                                <DetailsDiv>
+                                <S.DetailsDiv>
                                     <div className="pb-4">
                                         <span className="text-3xl font-semibold block">
                                             {project.nome}
@@ -115,13 +109,13 @@ const Projects = () => {
                                         )}
 
                                     </div>
-                                </DetailsDiv>
-                            </ItemDiv>
+                                </S.DetailsDiv>
+                            </S.ItemDiv>
                         ))}
-                    </Content>
+                    </S.Content>
                     <CarouselPrevious />
                     <CarouselNext />
-                </CenteredCarousel>
+                </S.CenteredCarousel>
                 <div className="flex justify-center md:mt-12">
                     <Button className="flex items-center w-80 bg-blue-600 hover:bg-blue-500">
                         <a

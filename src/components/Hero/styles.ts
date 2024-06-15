@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { Container } from '../Project/styles';
+import { Container } from '../../global';
 
 export const StyledHeroContainer = styled(Container)`
     display: flex;
@@ -57,7 +57,7 @@ export const StyledIcon = styled.div`
     color: #007bff;
 `;
 
-export const StyledButton = styled.button`
+export const StyledButton = styled.a`
     background-color: #007bff;
     color: white;
     border: none;
@@ -68,20 +68,20 @@ export const StyledButton = styled.button`
     gap: 0.5rem;
     padding: 1rem;
     border-radius: 0.375rem;
-    transition: background-color 0.3s ease;
-
+    transition: all 0.3s ease;
+    
+    p{
+        color: inherit;
+    }
+        
     ${StyledIcon}{
         color: white;
     }
     &:hover {
         background-color: #0056b3;
+        transform: scale(1.05); 
     }
 `;
-
-export const StyledLink = styled.a`
-    color: inherit;
-`;
-
 
 export const StyledSocialLinks = styled.div`
     display: flex;
@@ -90,5 +90,11 @@ export const StyledSocialLinks = styled.div`
 
     a {
         margin-right: 1rem;
+        transition: all 0.3s ease;
+
+        &:hover {
+            transform: scale(1.3); 
+        }
     }
 `;
+

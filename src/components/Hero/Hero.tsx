@@ -29,19 +29,18 @@ const Hero = () => {
                         />
                     </S.StyledTypicalText>
                     <S.StyledButtonContainer>
-                        <S.StyledButton>
+                        <S.StyledButton
+                            href="https://drive.usercontent.google.com/u/0/uc?id=1iDY0RGvkb69p0nU-URLHdLG4Rqy3RuZe&export=download"
+                            target="_blank"
+                            rel="noopener noreferrer">
                             <S.StyledIcon><ArrowDownToLine size={24} /></S.StyledIcon>
-                            <S.StyledLink
-                                href="https://drive.usercontent.google.com/u/0/uc?id=1iDY0RGvkb69p0nU-URLHdLG4Rqy3RuZe&export=download"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
+                            <p>
                                 Download CV
-                            </S.StyledLink>
+                            </p>
                         </S.StyledButton>
-                        <S.StyledButton>
+                        <S.StyledButton href="#contacts">
                             <S.StyledIcon><Mail size={24} /></S.StyledIcon>
-                            <S.StyledLink href="#contacts">Contact me</S.StyledLink>
+                            <p >Contact me</p>
                         </S.StyledButton>
                     </S.StyledButtonContainer>
                     <S.StyledSocialLinks>

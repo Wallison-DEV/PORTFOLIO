@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints } from '../Project/styles'
+import { breakpoints } from '../../global'
 
 export const ContactContainer = styled.div`
     display: flex;
