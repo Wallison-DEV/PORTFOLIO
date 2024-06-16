@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components'
 import { breakpoints } from '../../global'
 
-const slideInFromLeft = keyframes`
+export const slideInFromLeft = keyframes`
     0% {
         opacity: 0;
         transform: translateX(-100%);
@@ -12,7 +12,7 @@ const slideInFromLeft = keyframes`
     }
 `
 
-const slideInFromRight = keyframes`
+export const slideInFromRight = keyframes`
     0% {
         opacity: 0;
         transform: translateX(100%);

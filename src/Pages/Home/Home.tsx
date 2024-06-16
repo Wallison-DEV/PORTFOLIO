@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react'
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 import Hero from '../../components/Hero/Hero'
 import About from '../../components/About/About'
@@ -11,12 +9,6 @@ import Contacts from '../../components/Contact/Contacts'
 import * as S from '../../components/Navbar/styles'
 
 function Home() {
-	useEffect(() => {
-		AOS.init({
-			duration: 1000,
-			once: true,
-		});
-	}, []);
 	const [isOpen, setIsOpen] = useState(false)
 	const [activeSection, setActiveSection] = useState('')
 
