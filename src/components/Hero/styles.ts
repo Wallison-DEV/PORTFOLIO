@@ -100,6 +100,7 @@ export const StyledSocialLinks = styled.div`
         transition: all 0.3s ease;
 
         &:hover {
+            color: #0056b3;
             transform: scale(1.3);
         }
     }
