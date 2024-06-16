@@ -8,7 +8,7 @@ import HeroImg from '@/assets/images/avatar.png';
 
 const Hero = () => {
 	const [typedText, setTypedText] = useState('');
-	const phrases = ["I'm a Software Engineer", "I'm a Full Stack Developer!"];
+	const phrases = ["Sou um Engenheiro de Software", "Sou um Desenvolvedor Full Stack!"];
 	const currentPhraseIndex = useRef(0);
 	const isDeleting = useRef(false);
 
