@@ -3,6 +3,8 @@ import styled from 'styled-components'
 export const breakpoints = {
 	desktop: '1024px',
 	tablet: '768px',
+    smartphone: '420px',
+    smartphone_short: '380px',
 }
 
 export const Container = styled.div`
@@ -11,10 +13,14 @@ export const Container = styled.div`
     justify-content: center;  
     padding: 0 40px 20px;
     max-width: 1024px;
-    min-height: 100vh;
+    min-height: 100dvh;
     width: 100%;
     margin: auto;
 
+    @media (max-width: ${breakpoints.desktop}) {
+        max-width: 80vw;
+        height: auto;
+    }
     @media (max-width: ${breakpoints.tablet}) {
         margin: 80px auto;
         display: flex;
@@ -23,9 +29,18 @@ export const Container = styled.div`
         height: auto;
         margin-right:18px;
     }
-    @media (max-width: ${breakpoints.desktop}) {
-        max-width: 80vw;
-        height: auto;
+    @media (max-width: ${breakpoints.smartphone}) {
+        padding: 32px 16px;
+        min-height: 100dvh;
+        justify-content: center;
+        align-items: center;
+    }
+    @media (max-width: ${breakpoints.smartphone_short}) {
+        padding: 48px 16px;
+        margin: 0 auto;
+        min-height: auto;
+        justify-content: center;
+        align-items: center;
     }
 `
 

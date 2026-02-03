@@ -61,9 +61,9 @@ const Contact = () => {
 							<PhoneCall />
 							Telefone
 						</S.ContactHeading>
-						<S.ContactInfo>+55 (38) 99972-9817</S.ContactInfo>
+						<S.ContactInfo>+55 (11) 96043-4146</S.ContactInfo>
 						<StyledButton
-							href="https://wa.me/+5538999729817"
+							href="https://wa.me/+5511960434146"
 							target="_blank"
 							rel="noopener noreferrer"
 						>

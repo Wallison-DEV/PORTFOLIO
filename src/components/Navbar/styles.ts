@@ -39,7 +39,10 @@ export const NavigationMenuList = styled.ul<{ isOpen: boolean }>`
     flex-direction: column;
     max-height: ${({ isOpen }) => (isOpen ? '500px' : '0')};
     opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
-    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    max-height: ${({ isOpen }) => (isOpen ? '500px' : '0')};
+    opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
+    pointer-events: ${({ isOpen }) => (isOpen ? 'auto' : 'none')};
+    visibility: ${({ isOpen }) => (isOpen ? 'visible' : 'hidden')};
 
     @media (min-width: 769px) {
         flex-direction: row;
