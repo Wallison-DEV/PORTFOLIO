@@ -26,7 +26,7 @@ const About = () => {
 									<Medal size={40} />
 								</S.IconWrapper>
 								<S.CardText>
-									01+ <span>Anos de experiência</span>
+									03+ <span>Anos de experiência</span>
 								</S.CardText>
 							</S.CardContent>
 						</S.Card>
