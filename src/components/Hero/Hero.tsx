@@ -18,37 +18,53 @@ const Hero = () => {
 			once: false,
 		});
 
-		const typingDelay = 200;
-		const deleteDelay = 100;
+		const typingDelay = 120;
+		const deleteDelay = 60;
+		const holdDelay = 1500;
 
-		const type = () => {
+		let timeout: string | number | NodeJS.Timeout | undefined;
+
+		const tick = () => {
 			const currentPhrase = phrases[currentPhraseIndex.current];
-			let newText = typedText;
+
 			if (!isDeleting.current) {
-				newText = currentPhrase.substring(0, typedText.length + 1);
+				setTypedText(prev => {
+					const next = currentPhrase.substring(0, prev.length + 1);
+
+					if (next === currentPhrase) {
+						timeout = setTimeout(() => {
+							isDeleting.current = true;
+						}, holdDelay);
+					}
+
+					return next;
+				});
 			} else {
-				newText = typedText.substring(0, typedText.length - 1);
-			}
+				setTypedText(prev => {
+					const next = prev.substring(0, prev.length - 1);
 
-			setTypedText(newText);
+					if (next === '') {
+						isDeleting.current = false;
+						currentPhraseIndex.current =
+							(currentPhraseIndex.current + 1) % phrases.length;
+					}
 
-			if (!isDeleting.current && newText === currentPhrase) {
-				setTimeout(() => {
-					isDeleting.current = true;
-				}, typingDelay);
-			} else if (isDeleting.current && newText === '') {
-				isDeleting.current = false;
-				currentPhraseIndex.current = (currentPhraseIndex.current + 1) % phrases.length;
-				setTimeout(() => {
-					setTypedText('');
-				}, deleteDelay);
+					return next;
+				});
 			}
 		};
 
-		const timeoutId = setTimeout(type, isDeleting.current ? deleteDelay / 2 : typingDelay);
+		const interval = setInterval(
+			tick,
+			isDeleting.current ? deleteDelay : typingDelay
+		);
 
-		return () => clearTimeout(timeoutId);
-	}, [typedText, phrases]);
+		return () => {
+			clearInterval(interval);
+			clearTimeout(timeout);
+		};
+	}, []);
+
 
 	return (
 		<S.StyledHeroContainer>
