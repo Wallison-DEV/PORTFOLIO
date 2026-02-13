@@ -11,6 +11,7 @@ export const StyledContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr;
     gap: 4rem;
+    align-items: center;
 
     @media (max-width: 380px) {
         gap: 0;
@@ -47,17 +48,24 @@ export const StyledH2 = styled.h2`
 `;
 
 export const StyledTypicalText = styled.div`
-    padding-left: 2rem;
-    text-align: center;
-    font-size: 1.75rem;
-    min-height: 8rem;
+	text-align: center;
+	font-size: 1.75rem;
 
-    @media (min-width: 768px) {
-        padding-left: 0;
-    }
+	height: 2.5rem;
+	overflow: hidden;
+
+    @media (max-width: 1024px) {
+		font-size: 1.3rem;
+		height: 2rem;
+	}
+	@media (max-width: 820px) {
+		font-size: 1.2rem;
+		height: 2rem;
+	}
     @media (max-width: 380px) {
-        font-size: 1.50rem;
-    }
+        font-size: 1rem;
+		height: 1.8rem;
+	}
 `;
 
 export const StyledButtonContainer = styled.div`

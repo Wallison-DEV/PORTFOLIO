@@ -11,8 +11,9 @@ export const NavbarContainer = styled.div`
     padding: 0.75rem;
     z-index: 1000;
     background-color: white;
+
     min-height: 40px;
-`
+`;
 
 export const NavigationMenu = styled.div`
     width: 100%;
@@ -30,28 +31,43 @@ export const NavigationMenu = styled.div`
         }
     }
 `
-
 export const NavigationMenuList = styled.ul<{ isOpen: boolean }>`
-    display: flex;
-    width: 100%;
-    max-width: 800px;
-    align-items: center;
-    flex-direction: column;
-    max-height: ${({ isOpen }) => (isOpen ? '500px' : '0')};
-    opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
-    max-height: ${({ isOpen }) => (isOpen ? '500px' : '0')};
-    opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
-    pointer-events: ${({ isOpen }) => (isOpen ? 'auto' : 'none')};
-    visibility: ${({ isOpen }) => (isOpen ? 'visible' : 'hidden')};
+	display: flex;
+	width: 100%;
+	max-width: 800px;
+	align-items: center;
+	flex-direction: column;
 
-    @media (min-width: 769px) {
-        flex-direction: row;
-        justify-content: space-between;
-        max-height: none;
-        opacity: 1;
-        transition: none;
-    }
-`
+	max-height: ${({ isOpen }) => (isOpen ? '500px' : '0')};
+	opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
+	pointer-events: ${({ isOpen }) => (isOpen ? 'auto' : 'none')};
+	visibility: ${({ isOpen }) => (isOpen ? 'visible' : 'hidden')};
+
+	overflow: hidden;
+	transition: all 0.3s ease;
+
+	@media (max-width: 768px) {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 100%;
+		background: white;
+		padding: 1rem 0;
+		box-shadow: 0 8px 16px rgba(0,0,0,.08);
+	}
+
+	@media (min-width: 769px) {
+		flex-direction: row;
+		justify-content: space-between;
+		max-height: none;
+		opacity: 1;
+		visibility: visible;
+		pointer-events: auto;
+		position: static;
+		box-shadow: none;
+		padding: 0;
+	}
+`;
 
 export const NavigationMenuItem = styled.li`
     transition: transform 0.3s ease-in-out;
