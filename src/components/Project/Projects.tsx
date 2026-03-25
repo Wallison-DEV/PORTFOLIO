@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
 import * as S from './styles'
 import * as Img from '@/assets/src'
@@ -60,7 +61,7 @@ const Projects = () => {
 						{ProjectsList.map((project, index) => (
 							<S.ItemDiv key={index} data-aos="fade-down">
 								<S.ProjectImgDiv data-aos="fade-left">
-									<img src={project.src.src} alt="" />
+									<Image src={project.src} alt={project.nome} width={500} height={300} />
 								</S.ProjectImgDiv>
 								<S.DetailsDiv>
 									<div>

@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Container, PrimaryTitle, SecondTitle } from '@/global';
 import * as S from './styles';
 import * as Icons from '@/assets/src';
@@ -45,7 +46,7 @@ const Skills = () => {
 						>
 							<S.SkillCard>
 								<S.SkillImageDiv>
-									<img src={skill.src.src} alt={skill.language} />
+									<Image src={skill.src} alt={skill.language} width={88} height={88} />
 								</S.SkillImageDiv>
 								<S.SkillName>{skill.language}</S.SkillName>
 							</S.SkillCard>
@@ -63,7 +64,7 @@ const Skills = () => {
 						>
 							<S.SkillCard>
 								<S.SkillImageDiv>
-									<img src={skill.src.src} alt={skill.language} />
+									<Image src={skill.src} alt={skill.language} width={88} height={88} />
 								</S.SkillImageDiv>
 								<S.SkillName>{skill.language}</S.SkillName>
 							</S.SkillCard>
