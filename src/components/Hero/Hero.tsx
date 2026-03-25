@@ -6,9 +6,10 @@ import { Linkedin, Github, Mail, ArrowDownToLine } from 'lucide-react';
 import * as S from './styles';
 import HeroImg from '@/assets/images/avatar.png';
 
+const phrases = ["Sou um Engenheiro de Software", "Sou um Desenvolvedor Full Stack!"];
+
 const Hero = () => {
 	const [typedText, setTypedText] = useState('');
-	const phrases = ["Sou um Engenheiro de Software", "Sou um Desenvolvedor Full Stack!"];
 	const currentPhraseIndex = useRef(0);
 	const isDeleting = useRef(false);
 
