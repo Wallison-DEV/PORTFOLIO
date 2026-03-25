@@ -45,7 +45,7 @@ const Skills = () => {
 						>
 							<S.SkillCard>
 								<S.SkillImageDiv>
-									<img src={skill.src} alt={skill.language} />
+									<img src={skill.src.src} alt={skill.language} />
 								</S.SkillImageDiv>
 								<S.SkillName>{skill.language}</S.SkillName>
 							</S.SkillCard>
@@ -63,7 +63,7 @@ const Skills = () => {
 						>
 							<S.SkillCard>
 								<S.SkillImageDiv>
-									<img src={skill.src} alt={skill.language} />
+									<img src={skill.src.src} alt={skill.language} />
 								</S.SkillImageDiv>
 								<S.SkillName>{skill.language}</S.SkillName>
 							</S.SkillCard>

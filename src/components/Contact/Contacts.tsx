@@ -105,7 +105,7 @@ const Contact = () => {
 							<input
 								type="hidden"
 								name="access_key"
-								value={import.meta.env.VITE_ACCESS_KEY}
+								value={process.env.NEXT_PUBLIC_ACCESS_KEY}
 							/>
 							<S.FormInput
 								type="text"
