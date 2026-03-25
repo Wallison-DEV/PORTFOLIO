@@ -60,7 +60,7 @@ const Projects = () => {
 						{ProjectsList.map((project, index) => (
 							<S.ItemDiv key={index} data-aos="fade-down">
 								<S.ProjectImgDiv data-aos="fade-left">
-									<img src={project.src} alt="" />
+									<img src={project.src.src} alt="" />
 								</S.ProjectImgDiv>
 								<S.DetailsDiv>
 									<div>

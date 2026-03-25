@@ -42,7 +42,7 @@ const About = () => {
 				</S.AboutContent>
 				<S.ImageContainer className={inView ? 'animate' : ''}>
 					<S.AboutImg
-						src={AboutImage}
+						src={AboutImage.src}
 						alt="Imagem decorativa da seção sobre"
 					/>
 				</S.ImageContainer>

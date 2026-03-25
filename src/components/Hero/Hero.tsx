@@ -71,7 +71,7 @@ const Hero = () => {
 			<S.StyledContainer data-aos="fade-up">
 				<div>
 					<Tilt tiltMaxAngleX={20} tiltMaxAngleY={20} glareEnable={true} glareMaxOpacity={0.8}>
-						<S.StyledImg src={HeroImg} alt="Avatar" />
+						<S.StyledImg src={HeroImg.src} alt="Avatar" />
 					</Tilt>
 				</div>
 				<div>
