@@ -1,35 +1,33 @@
-import type { Metadata } from 'next'
-import '../src/index.css'
+import type { Metadata, Viewport } from 'next';
+import { ReactNode } from 'react';
+import '../src/index.css';
 
 export const metadata: Metadata = {
-  title: 'Wallison | Desenvolvedor Full Stack',
-  description:
-    'Portfolio de Wallison, desenvolvedor Full Stack especializado em React, TypeScript e Node.js. Confira meus projetos e habilidades.',
-  keywords: ['desenvolvedor', 'full stack', 'react', 'typescript', 'nodejs', 'portfolio'],
-  authors: [{ name: 'Wallison' }],
-  openGraph: {
-    title: 'Wallison | Desenvolvedor Full Stack',
-    description:
-      'Portfolio de Wallison, desenvolvedor Full Stack especializado em React, TypeScript e Node.js.',
-    type: 'website',
-    locale: 'pt_BR',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Wallison | Desenvolvedor Full Stack',
-    description:
-      'Portfolio de Wallison, desenvolvedor Full Stack especializado em React, TypeScript e Node.js.',
-  },
+  title: 'Wallison - Portfolio',
+  description: 'Portfólio profissional de Wallison Dev',
   robots: {
     index: true,
     follow: true,
   },
-}
+  openGraph: {
+    type: 'website',
+    locale: 'pt_BR',
+    url: 'https://wallison-dev.com',
+    title: 'Wallison - Portfolio',
+    description: 'Portfólio profissional de Wallison Dev',
+  },
+};
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
+
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR">
       <body>{children}</body>
     </html>
-  )
+  );
 }
+
