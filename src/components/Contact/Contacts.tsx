@@ -6,8 +6,10 @@ import { Linkedin, Github, Mail, PhoneCall, Send } from 'lucide-react';
 import { Container, PrimaryTitle } from '../../global';
 import { StyledButton } from '../Hero/styles';
 import * as S from './styles';
+import { useT } from '@/i18n';
 
 const Contact = () => {
+	const { t } = useT();
 	const {
 		register,
 		handleSubmit,
@@ -47,19 +49,19 @@ const Contact = () => {
 	return (
 		<>
 			<Container id="contact" style={{ textAlign: 'center' }} data-aos='fade-up'>
-				<PrimaryTitle >Como você pode me contatar</PrimaryTitle>
+				<PrimaryTitle >{t.contact.title}</PrimaryTitle>
 				<S.GridMethods>
 					<S.ContactMethod >
 						<S.ContactHeading>
 							<Mail />
-							Email
+							{t.contact.email}
 						</S.ContactHeading>
 						<S.ContactInfo>wallisonzwka@gmail.com</S.ContactInfo>
 					</S.ContactMethod>
 					<S.ContactMethod >
 						<S.ContactHeading>
 							<PhoneCall />
-							Telefone
+							{t.contact.phone}
 						</S.ContactHeading>
 						<S.ContactInfo>+55 (11) 96043-4146</S.ContactInfo>
 						<StyledButton
@@ -72,7 +74,7 @@ const Contact = () => {
 						</StyledButton>
 					</S.ContactMethod>
 					<S.ContactMethod >
-						<S.ContactHeading>Adicione nas redes</S.ContactHeading>
+						<S.ContactHeading>{t.contact.social}</S.ContactHeading>
 						<S.ContactInfo>
 							<S.ContactLink
 								href="https://github.com/Wallison-DEV"
@@ -98,7 +100,7 @@ const Contact = () => {
 					</S.ContactMethod>
 				</S.GridMethods>
 
-				<S.ContactTitle >Enviar e-mail</S.ContactTitle>
+				<S.ContactTitle >{t.contact.sendEmail}</S.ContactTitle>
 				<S.ContactForm onSubmit={handleSubmit(onSubmitHandler)}>
 					<S.FormGrid>
 						<S.InputWrapper >
@@ -107,51 +109,55 @@ const Contact = () => {
 								name="access_key"
 								value={process.env.NEXT_PUBLIC_ACCESS_KEY}
 							/>
-							<S.FormInput
+							<S.Field>
+								<S.FormInput
 								type="text"
-								placeholder="Nome"
+								placeholder={t.contact.name}
 								{...register('name', { required: true })}
 							/>
 							{errors.name && (
 								<S.ErrorMessage>
-									Este campo é obrigatório
+									{t.contact.required}
 								</S.ErrorMessage>
 							)}
-							<S.FormInput
+							</S.Field>
+							<S.Field>
+								<S.FormInput
 								type="email"
-								placeholder="Email"
+								placeholder={t.contact.emailPlaceholder}
 								{...register('email', { required: true })}
 							/>
 							{errors.email && (
 								<S.ErrorMessage>
-									Este campo é obrigatório
+									{t.contact.required}
 								</S.ErrorMessage>
 							)}
+							</S.Field>
 						</S.InputWrapper>
 
 						<div >
 							<S.FormTextarea
 								rows={5}
-								placeholder="Mensagem..."
+								placeholder={t.contact.message}
 								{...register('message', { required: true })}
 							/>
 							{errors.message && (
 								<S.ErrorMessage>
-									Este campo é obrigatório
+									{t.contact.required}
 								</S.ErrorMessage>
 							)}
 						</div>
 					</S.FormGrid>
 					<S.FlexEnd >
 						<S.SubmitButton type="submit">
-							Enviar Mensagem
+							{t.contact.send}
 						</S.SubmitButton>
 					</S.FlexEnd>
 
 
 				</S.ContactForm>
 			</Container>
-			<S.ToastAlert alert={alert ? 1 : 0} role="alert">
+			<S.ToastAlert $alert={alert ? 1 : 0} role="alert">
 				<svg
 					width="20"
 					height="20"
@@ -169,7 +175,7 @@ const Contact = () => {
 					/>
 				</svg>
 				<div>
-					Mensagem enviada com sucesso.
+					{t.contact.success}
 				</div>
 			</S.ToastAlert>
 		</>

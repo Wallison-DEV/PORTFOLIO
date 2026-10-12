@@ -1,10 +1,12 @@
 import { useInView } from 'react-intersection-observer'
-import { School, Medal } from 'lucide-react'
+import { School, Medal, Briefcase, GraduationCap } from 'lucide-react'
 import * as S from './styles'
 import AboutImage from '@/assets/images/about.png'
-import { PrimaryTitle, Container, PrimaryText } from '@/global'
+import { Container, PrimaryText } from '@/global'
+import { useT } from '@/i18n'
 
 const About = () => {
+	const { t } = useT()
 	const { ref, inView } = useInView({
 		threshold: 0.1,
 	})
@@ -13,12 +15,8 @@ const About = () => {
 		<Container>
 			<S.GridContainer ref={ref} className={inView ? 'animate' : ''}>
 				<S.AboutContent className={inView ? 'animate' : ''}>
-					<PrimaryTitle>Sobre mim</PrimaryTitle>
-					<PrimaryText>
-						Sou um Full Stack Python em formado pela EBAC – Escola Britânica de Artes Criativas e Tecnologia.
-						Um profissional com perfil movido a desafios e constantemente buscando aprimoramento na área de tecnologia.
-						Possuo experiências em React, TypeScript, Django, MySql e habilidades em VueJS.
-					</PrimaryText>
+					<S.AboutTitle>{t.about.title}</S.AboutTitle>
+					<PrimaryText>{t.about.text}</PrimaryText>
 					<S.StatsGrid>
 						<S.Card className={inView ? 'animate' : ''}>
 							<S.CardContent>
@@ -26,7 +24,7 @@ const About = () => {
 									<Medal size={40} />
 								</S.IconWrapper>
 								<S.CardText>
-									03+ <span>Anos de experiência</span>
+									03+ <span>{t.about.years}</span>
 								</S.CardText>
 							</S.CardContent>
 						</S.Card>
@@ -35,7 +33,23 @@ const About = () => {
 								<S.IconWrapper>
 									<School size={40} />
 								</S.IconWrapper>
-								<S.CardText>EBAC - Full Stack Python</S.CardText>
+								<S.CardText>{t.about.cardEbacCourse}</S.CardText>
+							</S.CardContent>
+						</S.Card>
+						<S.Card className={inView ? 'animate' : ''}>
+							<S.CardContent>
+								<S.IconWrapper>
+									<Briefcase size={40} />
+								</S.IconWrapper>
+								<S.CardText>{t.about.cardEbacJob}</S.CardText>
+							</S.CardContent>
+						</S.Card>
+						<S.Card className={inView ? 'animate' : ''}>
+							<S.CardContent>
+								<S.IconWrapper>
+									<GraduationCap size={40} />
+								</S.IconWrapper>
+								<S.CardText>{t.about.cardDegree}</S.CardText>
 							</S.CardContent>
 						</S.Card>
 					</S.StatsGrid>
@@ -43,7 +57,7 @@ const About = () => {
 				<S.ImageContainer className={inView ? 'animate' : ''}>
 					<S.AboutImg
 						src={AboutImage.src}
-						alt="Imagem decorativa da seção sobre"
+						alt={t.about.imageAlt}
 					/>
 				</S.ImageContainer>
 			</S.GridContainer>

@@ -14,6 +14,10 @@ import MysqlImg from './icons/mysql.png'
 import DjangoImg from './icons/django.svg'
 import RestapiImg from './icons/restapi.png'
 import CppImg from './icons/cpp.png'
+import DockerImg from './icons/docker.png'
+import NodejsImg from './icons/nodejs.png'
+import ReduxImg from './icons/redux.png'
+import GitImg from './icons/git.png'
 import EplayImg from './images/eplay.png'
 import ChatImg from './images/chat.png'
 import MapsImg from './images/maps.png'
@@ -37,6 +41,10 @@ export {
 	DjangoImg,
 	RestapiImg,
 	CppImg,
+	DockerImg,
+	NodejsImg,
+	ReduxImg,
+	GitImg,
 	EplayImg,
 	MapsImg,
 	XCloneImg,

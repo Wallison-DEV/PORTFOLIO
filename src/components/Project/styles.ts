@@ -4,55 +4,60 @@ import { SecondTitle, breakpoints } from '@/global'
 
 export const Description = styled.p`
     font-size: 1rem;
-    color: #555;
+    line-height: 1.7;
+    color: var(--text-muted);
 `
 
 export const ItemDiv = styled(CarouselItem)`
-    border: 2px solid #ccc;
-    border-radius: 8px;
     display: flex;
-    gap: 16px;
-    padding: 16px 16px 0;
+    align-items: center;
+    gap: 32px;
+    padding: 28px;
     box-sizing: border-box;
-    padding-bottom: 16px;
-    >div{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+
+    > div {
         width: 100%;
     }
+
     @media (max-width: ${breakpoints.tablet}) {
-        display: flex;
         flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+        padding: 18px;
     }
 `
 
 export const ProjectImgDiv = styled.div`
-    height: 100%;
     display: flex;
     align-items: center;
+
     img {
         width: 100%;
+        height: auto;
         object-fit: contain;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        box-shadow: 0 8px 12px 8px rgba(0, 0, 0, 0.1);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        box-shadow: var(--shadow-sm);
+        background: var(--surface-2);
     }
 `
 
 export const CenteredCarousel = styled(Carousel)`
     user-select: none;
     margin-top: 12px;
-    &:active {
-        cursor: grabbing; 
-    }
-    @media (max-width: ${breakpoints.tablet}) {
-        width: 75vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 20px;
 
-        img {
-            padding: 0 0 16px;
-        }
+    &:active {
+        cursor: grabbing;
+    }
+
+    @media (max-width: ${breakpoints.tablet}) {
+        width: 100%;
+        margin-top: 44px;
+        margin-bottom: 20px;
     }
 `
 
@@ -64,30 +69,41 @@ export const DetailsDiv = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 16px;
 
-    ${SecondTitle}{
+    ${SecondTitle} {
         margin-bottom: 0;
+        font-size: 1.6rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        color: var(--text-strong);
     }
 
     @media (max-width: ${breakpoints.tablet}) {
         width: 100%;
     }
 `
+
 export const ProjectDate = styled.span`
+    display: inline-block;
+    margin-top: 8px;
+    padding: 3px 12px;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 0.85rem;
     font-weight: 600;
-    display: block;
 `
+
 export const ButtonGroup = styled.div`
     display: flex;
-    gap: 1rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
     align-items: center;
 `
 
 export const CenterButton = styled.div`
     display: flex;
     justify-content: center;
-    
-    a{
-        max-width: 700px;
-    }
+    margin-top: 28px;
 `
