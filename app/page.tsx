@@ -1,5 +1,10 @@
-import Home from '../src/Pages/Home/Home'
+import Home from '../src/pages-home/Home/Home'
+import { LangProvider } from '../src/i18n'
 
 export default function Page() {
-  return <Home />
+  return (
+    <LangProvider lang="pt">
+      <Home />
+    </LangProvider>
+  )
 }

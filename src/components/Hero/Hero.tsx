@@ -5,10 +5,11 @@ import Tilt from 'react-parallax-tilt';
 import { Linkedin, Github, Mail, ArrowDownToLine } from 'lucide-react';
 import * as S from './styles';
 import HeroImg from '@/assets/images/avatar.png';
-
-const phrases = ["Sou um Engenheiro de Software", "Sou um Desenvolvedor Full Stack!"];
+import { useT } from '@/i18n';
 
 const Hero = () => {
+	const { t } = useT();
+	const phrases = t.hero.phrases;
 	const [typedText, setTypedText] = useState('');
 	const currentPhraseIndex = useRef(0);
 	const isDeleting = useRef(false);
@@ -70,32 +71,33 @@ const Hero = () => {
 	return (
 		<S.StyledHeroContainer>
 			<S.StyledContainer data-aos="fade-up">
-				<div>
+				<S.StyledImgWrap>
 					<Tilt tiltMaxAngleX={20} tiltMaxAngleY={20} glareEnable={true} glareMaxOpacity={0.8}>
-						<S.StyledImg src={HeroImg.src} alt="Avatar" />
+						<S.StyledImg src={HeroImg.src} alt={t.hero.avatarAlt} />
 					</Tilt>
-				</div>
-				<div>
+				</S.StyledImgWrap>
+				<S.StyledText>
+					<S.StyledEyebrow>{t.hero.tagline}</S.StyledEyebrow>
 					<S.StyledH2 data-aos="fade-right">Wallison Costa</S.StyledH2>
 					<S.StyledTypicalText>
 						{typedText}
 					</S.StyledTypicalText>
 					<S.StyledButtonContainer data-aos="fade-left">
 						<S.StyledButton
-							href="https://drive.usercontent.google.com/u/0/uc?id=1iDY0RGvkb69p0nU-URLHdLG4Rqy3RuZe&export=download"
+							href={t.hero.cvHref}
 							target="_blank"
 							rel="noopener noreferrer"
 						>
 							<S.StyledIcon>
 								<ArrowDownToLine size={24} />
 							</S.StyledIcon>
-							<p>Download CV</p>
+							<p>{t.hero.downloadCv}</p>
 						</S.StyledButton>
-						<S.StyledButton href="#contacts" >
+						<S.StyledButton href="#contacts" $secondary>
 							<S.StyledIcon>
 								<Mail size={24} />
 							</S.StyledIcon>
-							<p>Contact me</p>
+							<p>{t.hero.contactMe}</p>
 						</S.StyledButton>
 					</S.StyledButtonContainer>
 					<S.StyledSocialLinks data-aos="zoom-in">
@@ -118,7 +120,7 @@ const Hero = () => {
 							</S.StyledIcon>
 						</a>
 					</S.StyledSocialLinks>
-				</div>
+				</S.StyledText>
 			</S.StyledContainer>
 		</S.StyledHeroContainer >
 	);

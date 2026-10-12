@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components'
-import { breakpoints } from '../../global'
+import { breakpoints, PrimaryTitle } from '../../global'
 
 export const slideInFromLeft = keyframes`
     0% {
@@ -54,20 +54,23 @@ export const AboutContent = styled.div`
 export const StatsGrid = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    margin-top: 20px;
+    gap: 16px;
+    margin-top: 28px;
+
+    @media (max-width: 460px) {
+        grid-template-columns: 1fr;
+    }
 `
 
 export const Card = styled.div`
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
-    padding: 20px;
-    cursor: pointer;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    padding: 20px 16px;
     opacity: 0;
     transform: translateX(100%);
-    transition: all 0.6s ease-out;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.25s ease, border-color 0.25s ease;
 
     &:nth-child(1),
     &:nth-child(3) {
@@ -89,8 +92,8 @@ export const Card = styled.div`
     }
 
     &:hover {
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        transform: scale(1.05); 
+        box-shadow: var(--shadow-md);
+        border-color: var(--border-strong);
     }
 `
 
@@ -101,9 +104,20 @@ export const CardContent = styled.div`
 `
 
 export const IconWrapper = styled.div`
-    color: #007bff;
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    margin-bottom: 12px;
+
+    svg {
+        width: 28px;
+        height: 28px;
+    }
 `
 
 export const CardText = styled.div`
@@ -135,14 +149,24 @@ export const ImageContainer = styled.div`
 `
 
 export const AboutImg = styled.img`
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 220px;
     max-width: 100%;
-    max-height: 100%;
     border-radius: 50%;
+    border: 4px solid var(--accent-soft);
+    box-shadow: var(--shadow-md);
+    background: var(--surface);
+    transition: transform 0.3s ease-in-out;
 
-    &:hover{
-        transition: all 0.3 ease-in-out;
-        transform: scale(1.1);
+    &:hover {
+        transform: scale(1.05);
     }
-`    
+`
+
+export const AboutTitle = styled(PrimaryTitle)`
+    text-align: left;
+
+    &::after {
+        margin-left: 0;
+    }
+`

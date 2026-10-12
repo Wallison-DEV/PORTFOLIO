@@ -7,12 +7,11 @@ import useEmblaCarousel, {
 } from 'embla-carousel-react'
 
 import { ArrowLeft, ArrowRight } from 'lucide-react'
+import styled from 'styled-components'
 
 
 
-import { cn } from '@/lib/utils'
 
-import { Button } from '@/components/ui/button'
 
 
 
@@ -272,7 +271,8 @@ const Carousel = React.forwardRef<
 
 					onKeyDownCapture={handleKeyDown}
 
-					className={cn('relative', className)}
+					className={className}
+					style={{ position: 'relative' }}
 
 					role="region"
 
@@ -298,223 +298,158 @@ Carousel.displayName = 'Carousel'
 
 
 
+
+const Viewport = styled.div`
+	overflow: hidden;
+`
+
+const Track = styled.div<{ $vertical: boolean }>`
+	display: flex;
+	${({ $vertical }) =>
+		$vertical ? 'margin-top: -1rem; flex-direction: column;' : 'margin-left: -1rem;'}
+`
+
+const Slide = styled.div<{ $vertical: boolean }>`
+	min-width: 0;
+	flex: 0 0 100%;
+	${({ $vertical }) => ($vertical ? 'padding-top: 1rem;' : 'padding-left: 1rem;')}
+`
+
+const NavButton = styled.button<{ $vertical: boolean; $side: 'start' | 'end' }>`
+	position: absolute;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 2rem;
+	height: 2rem;
+	padding: 0;
+	border-radius: 9999px;
+	border: 1px solid var(--border-strong);
+	background: var(--surface);
+	color: inherit;
+	cursor: pointer;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+	transition: background-color 0.2s;
+	${({ $vertical, $side }) =>
+		$vertical
+			? `${$side === 'start' ? 'top: -3rem;' : 'bottom: -3rem;'} left: 50%; transform: translateX(-50%) rotate(90deg);`
+			: `${$side === 'start' ? 'left: -3rem;' : 'right: -3rem;'} top: 50%; transform: translateY(-50%);`}
+
+		@media (max-width: 768px) {
+		${({ $vertical, $side }) =>
+			$vertical
+				? ''
+				: `top: -2.75rem; left: auto; transform: none; ${$side === 'start' ? 'right: 3rem;' : 'right: 0.5rem;'}`}
+	}
+
+	&:hover:not(:disabled) {
+		background: var(--surface-2);
+	}
+	&:disabled {
+		pointer-events: none;
+		opacity: 0.5;
+	}
+	svg {
+		width: 1rem;
+		height: 1rem;
+	}
+`
+
+const SrOnly = styled.span`
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+`
+
 const CarouselContent = React.forwardRef<
-
 	HTMLDivElement,
-
 	React.HTMLAttributes<HTMLDivElement>
-
->(({ className, ...props }, ref) => {
-
+>(({ ...props }, ref) => {
 	const { carouselRef, orientation } = useCarousel()
 
-
-
 	return (
-
-		<div ref={carouselRef} className="overflow-hidden">
-
-			<div
-
-				ref={ref}
-
-				className={cn(
-
-					'flex',
-
-					orientation === 'horizontal' ? '-ml-4' : '-mt-4 flex-col',
-
-					className
-
-				)}
-
-				{...props}
-
-			/>
-
-		</div>
-
+		<Viewport ref={carouselRef}>
+			<Track ref={ref} $vertical={orientation === 'vertical'} {...props} />
+		</Viewport>
 	)
-
 })
-
 CarouselContent.displayName = 'CarouselContent'
 
-
-
 const CarouselItem = React.forwardRef<
-
 	HTMLDivElement,
-
 	React.HTMLAttributes<HTMLDivElement>
-
->(({ className, ...props }, ref) => {
-
+>(({ ...props }, ref) => {
 	const { orientation } = useCarousel()
 
-
-
 	return (
-
-		<div
-
+		<Slide
 			ref={ref}
-
 			role="group"
-
 			aria-roledescription="slide"
-
-			className={cn(
-
-				'min-w-0 shrink-0 grow-0 basis-full',
-
-				orientation === 'horizontal' ? 'pl-4' : 'pt-4',
-
-				className
-
-			)}
-
+			$vertical={orientation === 'vertical'}
 			{...props}
-
 		/>
-
 	)
-
 })
-
 CarouselItem.displayName = 'CarouselItem'
 
-
-
 const CarouselPrevious = React.forwardRef<
-
 	HTMLButtonElement,
-
-	React.ComponentProps<typeof Button>
-
->(({ className, variant = 'outline', size = 'icon', ...props }, ref) => {
-
+	React.ButtonHTMLAttributes<HTMLButtonElement>
+>(({ ...props }, ref) => {
 	const { orientation, scrollPrev, canScrollPrev } = useCarousel()
 
-
-
 	return (
-
-		<Button
-
+		<NavButton
 			ref={ref}
-
-			variant={variant}
-
-			size={size}
-
-			className={cn(
-
-				'absolute  h-8 w-8 rounded-full',
-
-				orientation === 'horizontal'
-
-					? '-left-12 top-1/2 -translate-y-1/2'
-
-					: '-top-12 left-1/2 -translate-x-1/2 rotate-90',
-
-				className
-
-			)}
-
+			type="button"
+			$vertical={orientation === 'vertical'}
+			$side="start"
 			disabled={!canScrollPrev}
-
 			onClick={scrollPrev}
-
 			{...props}
-
 		>
-
-			<ArrowLeft className="h-4 w-4" />
-
-			<span className="sr-only">Previous slide</span>
-
-		</Button>
-
+			<ArrowLeft />
+			<SrOnly>Previous slide</SrOnly>
+		</NavButton>
 	)
-
 })
-
 CarouselPrevious.displayName = 'CarouselPrevious'
 
-
-
 const CarouselNext = React.forwardRef<
-
 	HTMLButtonElement,
-
-	React.ComponentProps<typeof Button>
-
->(({ className, variant = 'outline', size = 'icon', ...props }, ref) => {
-
+	React.ButtonHTMLAttributes<HTMLButtonElement>
+>(({ ...props }, ref) => {
 	const { orientation, scrollNext, canScrollNext } = useCarousel()
 
-
-
 	return (
-
-		<Button
-
+		<NavButton
 			ref={ref}
-
-			variant={variant}
-
-			size={size}
-
-			className={cn(
-
-				'absolute h-8 w-8 rounded-full',
-
-				orientation === 'horizontal'
-
-					? '-right-12 top-1/2 -translate-y-1/2'
-
-					: '-bottom-12 left-1/2 -translate-x-1/2 rotate-90',
-
-				className
-
-			)}
-
+			type="button"
+			$vertical={orientation === 'vertical'}
+			$side="end"
 			disabled={!canScrollNext}
-
 			onClick={scrollNext}
-
 			{...props}
-
 		>
-
-			<ArrowRight className="h-4 w-4" />
-
-			<span className="sr-only">Next slide</span>
-
-		</Button>
-
+			<ArrowRight />
+			<SrOnly>Next slide</SrOnly>
+		</NavButton>
 	)
-
 })
-
 CarouselNext.displayName = 'CarouselNext'
 
-
-
 export {
-
 	type CarouselApi,
-
 	Carousel,
-
 	CarouselContent,
-
 	CarouselItem,
-
 	CarouselPrevious,
-
 	CarouselNext,
-
 }
-

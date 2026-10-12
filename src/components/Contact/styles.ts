@@ -2,10 +2,12 @@ import styled from 'styled-components'
 import { breakpoints } from '../../global'
 import { StyledButton } from '../Hero/styles'
 
-export const ContactTitle = styled.h1`
-	font-weight: bold;
-	font-size: 2rem;
-	padding-bottom: 2rem;
+export const ContactTitle = styled.h2`
+	font-weight: 700;
+	font-size: 1.5rem;
+	letter-spacing: -0.01em;
+	color: var(--text-heading);
+	margin: 40px 0 24px;
 	text-align: center;
 `
 
@@ -13,31 +15,59 @@ export const ContactMethod = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: start;
-	margin-bottom: 2rem;
+	justify-content: center;
+	gap: 8px;
+	padding: 24px 20px;
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+	box-shadow: var(--shadow-sm);
+	transition: box-shadow 0.25s ease, border-color 0.25s ease;
+
+	&:hover {
+		box-shadow: var(--shadow-md);
+		border-color: var(--border-strong);
+	}
 `
 
 export const ContactHeading = styled.h3`
-	font-weight: bold;
-	font-size: 1.5rem;
+	font-weight: 700;
+	font-size: 1.1rem;
 	display: flex;
 	align-items: center;
-	gap: 1rem;
-	margin-bottom: 0.5rem;
+	gap: 0.6rem;
+	color: var(--text-strong);
+
+	svg {
+		color: var(--accent);
+		width: 22px;
+		height: 22px;
+	}
 `
 
-export const ContactInfo = styled.p`
-	font-size: 1.25rem;
+export const ContactInfo = styled.div`
+	font-size: 1rem;
+	color: var(--text-muted);
+	word-break: break-word;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 6px;
 `
 export const ContactLink = styled.a`
 	display: flex;
 	align-items: center;
+	gap: 10px;
 	text-decoration: none;
-	color: inherit;
-	transition: all 0.3s ease-in-out;
+	color: var(--text-muted);
+	transition: color 0.2s ease;
+
+	p {
+		margin: 0;
+	}
 
 	&:hover {
-		color: #0056b3;
+		color: var(--accent);
 	}
 `
 
@@ -47,60 +77,74 @@ export const ContactForm = styled.form`
 
 export const InputWrapper = styled.div`
 	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+`
+
+export const Field = styled.div`
+	width: 100%;
 `
 
 export const FormInput = styled.input`
 	width: 100%;
-	padding: 1rem;
-	border: none;
-	border-radius: 8px;
-	background-color: #f0f0f0;
+	padding: 0.9rem 1rem;
+	font: inherit;
+	color: var(--text);
+	border: 1px solid var(--border);
+	border-radius: 12px;
+	background-color: var(--surface);
 	outline: none;
-	transition: background-color 0.3s;
+	transition: border-color 0.2s, box-shadow 0.2s;
 
-	&:last-child {
-		margin-top: 24px;
+	&::placeholder {
+		color: var(--text-muted);
+		opacity: 0.8;
 	}
 	&:focus {
-		background-color: #e0e0e0;
+		border-color: var(--accent);
+		box-shadow: 0 0 0 4px var(--accent-soft);
 	}
 `
 
 export const ErrorMessage = styled.p`
-	color: red;
-	font-weight: bold;
-	margin-top: 0.5rem;
+	color: #e11d48;
+	font-size: 0.875rem;
+	font-weight: 600;
+	text-align: left;
+	margin: 0.375rem 0 0 0.25rem;
 `
 
 export const FormTextarea = styled.textarea`
 	width: 100%;
-	padding: 1rem;
-	border: none;
-	border-radius: 8px;
-	background-color: #f0f0f0;
+	min-height: 170px;
+	padding: 0.9rem 1rem;
+	font: inherit;
+	color: var(--text);
+	border: 1px solid var(--border);
+	border-radius: 12px;
+	background-color: var(--surface);
 	outline: none;
-	transition: background-color 0.3s;
-	resize: none;
-	min-width: 400px;
+	transition: border-color 0.2s, box-shadow 0.2s;
+	resize: vertical;
 
-	&:focus {
-		background-color: #e0e0e0;
+	&::placeholder {
+		color: var(--text-muted);
+		opacity: 0.8;
 	}
-
-	@media (max-width: ${breakpoints.tablet}) {
-		min-width: auto;
-		margin-top: 16px;
+	&:focus {
+		border-color: var(--accent);
+		box-shadow: 0 0 0 4px var(--accent-soft);
 	}
 `
 
 export const GridMethods = styled.div`
-	display: flex;
-	justify-content: space-between;
-	gap: 32px;
-    padding: 24px auto;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
 
 	@media (max-width: ${breakpoints.tablet}) {
-		display: block;
+		grid-template-columns: 1fr;
 	}
 `
 
@@ -124,29 +168,29 @@ export const FlexEnd = styled.div`
 `
 
 interface ToastAlertProps {
-	alert: number;
+	$alert: number;
 }
 
 export const ToastAlert = styled.div<ToastAlertProps>`
 	position: fixed;
-	bottom: ${({ alert }) => (alert ? '5px' : '-400px')};
-	right: 5px;
+	bottom: ${({ $alert }) => ($alert ? '16px' : '-400px')};
+	right: 16px;
 	display: flex;
 	align-items: center;
 	width: 100%;
 	max-width: 320px;
 	padding: 16px;
-	background-color: white;
+	background-color: var(--surface);
 	color: gray;
 	border: 1px solid gray;
 	border-radius: 8px;
 	transition: all 0.5s;
-	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	box-shadow: var(--shadow-md);
 
 	svg {
 		width: 20px;
 		height: 20px;
-		color: #007bff;
+		color: var(--accent);
 		transform: rotate(45deg);
 	}
 
